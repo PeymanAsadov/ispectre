@@ -1,0 +1,58 @@
+const newProducts = [
+  {
+    id: 26,
+    title: "AirPods Max 2",
+    description: "Listening. Remastered.",
+    image: "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/ca/92/ca92de81804d93d655f5b235cf8c0a6a/260317150014868397.webp",
+    price: 1519,
+    monthlyPrice: 169,
+    months: 9,
+  },
+  {
+    id: 27,
+    title: "MacBook Neo",
+    description: "Amazing Mac. Surprising price",
+    image: "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/72/38/7238e36f7f59ad1c9824aa518449cba0/260305150018795522.webp",
+    price: 1379,
+    monthlyPrice: 115,
+    months: 12,
+  },
+  {
+    id: 28,
+    title: "MacBook Air M5",
+    description: "Might takes flight. Supercharged by M5.",
+    image: "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/04/ba/04ba7f37485eb5a71c3f004fd420e519/260304170012335507_1.webp",
+    price: 2749,
+    monthlyPrice: 229,
+    months: 12,
+  },
+  {
+    id: 29,
+    title: "MacBook Pro M5 Pro",
+    description: "Fast runs in the family.",
+    image: "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/dd/28/dd2845e93dce4752ce0fc0bdd6fa368c/260304170026100178.webp",
+    price: 5299,
+    monthlyPrice: 442,
+    months: 12,
+  },
+  {
+    id: 30,
+    title: "iPad Air M4",
+    description: "Whoosh. Now supercharged by M4.",
+    image: "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/db/49/db49ff604ed6cdafc401f0e6c6d78d75/260303190021288559.webp",
+    price: 1539,
+    monthlyPrice: 128,
+    months: 12,
+  },
+  {
+    id: 31,
+    title: "iPhone 17 Pro",
+    description: "Titanium. Tough and strong.",
+    image: "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/product/8a/8a/8a8ae008f8b519511bfc41e8d16b6f81/250915140023667226.webp",
+    price: 1819,
+    monthlyPrice: 101,
+    months: 18,
+  },
+];
+
+export default newProducts;

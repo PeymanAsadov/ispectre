@@ -1,0 +1,354 @@
+{
+  "nav": {
+    "mac": "Mac",
+    "ipad": "iPad",
+    "iphone": "iPhone",
+    "watch": "Watch",
+    "airpods": "AirPods",
+    "tv_home": "Tv Home",
+    "vision_pro": "Vision Pro",
+    "display": "Display",
+    "support": "iSupport",
+    "accessories": "Accessories",
+    "view_all_mac": "View all Mac",
+    "all_ipads": "All iPads",
+    "all_iphones": "All iPhones",
+    "all_watches": "All Watches",
+    "view_all_airpods": "View All AirPods",
+    "view_all_tvs": "View All TVs",
+    "view_all_visions": "View All Visions",
+    "view_all_displays": "View All Displays",
+    "view_all_accessories": "View All Accessories",
+    "view_all": "View all {{category}}",
+    "logout_success": "Hesabdan çıxış etdiniz",
+    "login": "Daxil ol",
+    "home": "Ana səhifə",
+    "search_placeholder": "Axtar...",
+    "suggestions": "Tövsiyələr",
+    "products": "Məhsullar",
+    "no_products_found": "Məhsul tapılmadı",
+    "from_price": "Qiymət: {{price}} ₼"
+  },
+  "cart": {
+    "title": "Səbət",
+    "empty": "Səbətiniz boşdur",
+    "suggested": "Sizə də uyğun ola bilər",
+    "add_to_cart": "Səbətə əlavə et",
+    "added_to_cart": "Səbətə əlavə olundu ✓",
+    "estimated_total": "Təxmini cəmi",
+    "shipping_tax_info": "Vergilər və çatdırılma checkout zamanı hesablanır",
+    "checkout": "Check out"
+  },
+  "checkout": {
+    "title": "Sifarişi tamamla",
+    "total": "Cəmi",
+    "first_name": "Ad",
+    "last_name": "Soyad",
+    "shipping_address": "Çatdırılma ünvanı",
+    "address": "Ünvan",
+    "city": "Şəhər",
+    "postal_code": "Poçt kodu",
+    "payment_info": "Ödəniş məlumatları",
+    "expiry_placeholder": "AA/İİ",
+    "confirm_order": "Sifarişi təsdiqlə — {{total}} ₼",
+    "errors": {
+      "name_surname_empty": "Ad və soyad boş ola bilməz",
+      "address_empty": "Ünvanı daxil edin",
+      "postal_code_empty": "Poçt kodunu daxil edin",
+      "card_incomplete": "Kart nömrəsini tam daxil edin",
+      "expiry_invalid": "Son istifadə tarixini düzgün daxil edin (AA/İİ)",
+      "cvv_incomplete": "CVV kodunu daxil edin"
+    }
+  },
+  "product": {
+    "loading": "Məhsul yüklənir...",
+    "not_found": "Məhsul tapılmadı",
+    "deleted_notice": "Bu məhsul admin panelindən silinmiş ola bilər",
+    "back_to_list": "Siyahıya qayıt",
+    "selected_color": "Seçilmiş rəng :",
+    "storage": "Yaddaş",
+    "color": "Rəng",
+    "size": "Ölçü",
+    "tech_specs": "Texniki xüsusiyyətlər",
+    "payment_cash_card": "Nağd / Kartla ödəniş",
+    "installments_info": "12 ay faizsiz taksit",
+    "monthly_price": "{{price}} ₼/ay",
+    "per_month": "/ ay",
+    "you_may_also_like": "Sizə də xoş gələ bilər",
+    "from_price_suffix": "{{price}} ₼-dan"
+  },
+  "footer": {
+    "shop": "Mağaza",
+    "services": "Xidmətlər",
+    "for_clients": "Müştərilər üçün",
+    "information": "Məlumat",
+    "apple_premium_partner": "Apple Premium Partner",
+    "description": "iSpectre, Premium Partner statusu ilə tanınan və Azərbaycandakı etibarlı Apple ekspertinizdir. Mağazalarımızda ən son Apple cihazlarını və aksesuarlarını kəşf edin. Dünyaca məşhur brendin unikal atmosferində premium xidmətdən zövq alın",
+    "premium_partner": "Premium Partner",
+    "authorised_service": "Rəsmi Xidmət Mərkəzi",
+    "subscribe": "Yeniliklər üçün abunə ol",
+    "email_placeholder": "E-poçt",
+    "i_agree": "Mən",
+    "processing_data": "şəxsi məlumatların işlənməsi",
+    "and_understand": "ilə razılaşıram və",
+    "terms_conditions": "İstifadə Şərtlərini qəbul edirəm",
+    "follow_us": "Bizi izləyin",
+    "payment_methods": "Ödəniş üsulları",
+    "copyright": "2026 iSpectre Azerbaijan. Bütün hüquqlar qorunur",
+    "links": {
+      "mac": "Mac",
+      "ipad": "iPad",
+      "iphone": "iPhone",
+      "watch": "Watch",
+      "airpods": "AirPods",
+      "tv_home": "TV və Ev",
+      "accessories": "Aksesuarlar",
+      "all_services": "Bütün xidmətlər",
+      "trade_in": "Trade-in",
+      "installments_credit": "Hissə-hissə və Kredit",
+      "returns_warranty": "Geri qaytarma və Zəmanət",
+      "delivery_payment": "Çatdırılma və Ödəniş",
+      "isupport": "iSupport",
+      "blog": "Bloq",
+      "press_releases": "Press-relizlər",
+      "educational_offer": "Təhsil təklifi",
+      "apple_business": "Apple və Biznes",
+      "loyalty_program": "Loyallıq Proqramı",
+      "about_us": "Haqqımızda",
+      "find_store": "Mağaza tap",
+      "contacts": "Əlaqə",
+      "careers": "Karyera imkanları",
+      "privacy_policy": "Məxfilik siyasəti",
+      "gift_regulations": "Hədiyyə kartları üzrə qaydalar"
+    }
+  },
+  "filters": {
+    "price": "Qiymət",
+    "sort": "Sırala",
+    "select": "Seç",
+    "default": "Standart",
+    "cheap_to_expensive": "Ucuz → Baha",
+    "expensive_to_cheap": "Baha → Ucuz",
+    "model": "Model",
+    "color": "Rəng",
+    "storage": "Yaddaş",
+    "size": "Ölçü",
+    "glass_type": "Şüşə növü",
+    "no_results": "Seçilmiş filtrlərə uyğun məhsul tapılmadı"
+  },
+  "account": {
+    "title": "Hesabım",
+    "greeting": "Salam, {{name}} 👋",
+    "personal_info": "Şəxsi məlumatlar",
+    "edit": "Redaktə et",
+    "save": "Yadda saxla",
+    "logout": "Çıxış et",
+    "first_name": "Ad",
+    "last_name": "Soyad",
+    "email": "E-poçt",
+    "phone": "Telefon",
+    "orders": "Sifarişlərim",
+    "no_orders_title": "Hələ sifariş yoxdur",
+    "no_orders_subtitle": "Sifarişlər tamamlandıqdan sonra burada görünəcək",
+    "order_number": "Sifariş №{{id}}",
+    "qty_suffix": "əd.",
+    "card_label": "Kart",
+    "errors": {
+      "name_empty": "Ad boş ola bilməz",
+      "surname_empty": "Soyad boş ola bilməz",
+      "email_invalid": "E-poçt düzgün deyil",
+      "phone_incomplete": "Telefon nömrəsini tam daxil edin: {{placeholder}}",
+      "already_used": "Bu e-poçt və ya telefon artıq istifadə olunur"
+    }
+  },
+  "home": {
+    "hero": [
+      {
+        "tagline": "Titanium Kamera Motor",
+        "promo": "Köhnə iPhone-u təhvil verin və 300 ₼-dək endirim qazanın",
+        "note": "Kosmik Narıncı və Səhra Titaniumu rənglərində",
+        "cta": "İndi al"
+      },
+      {
+        "tagline": "Heyrətamiz Güclə dolu",
+        "promo": "Peşəkarlar üçün yaradılıb 22 saata qədər batareya ömrü",
+        "note": "Space Black və Silver rənglərində",
+        "cta": "İndi al"
+      },
+      {
+        "tagline": "Mavinin Simfoniyası Yenidən kəşf",
+        "promo": "Yeni AirPods Max Sky Blue ilə 6 ay pulsuz Apple Music əldə edin",
+        "note": "İndi USB-C və Pro-level aktiv Səs-küy Ləğvi ilə",
+        "cta": "İndi al"
+      },
+      {
+        "tagline": "Məkan hesablamaları erasına xoş gəlmisiniz",
+        "promo": "Rəqəmsal məzmunun fiziki məkanınızla necə birləşdiyini kəşf edin",
+        "note": "Mağazalarımızda sınaq seansları mövcuddur",
+        "cta": "Ətraflı"
+      },
+      {
+        "tagline": "Günəş işığı. Super güc",
+        "promo": "İndiyə qədər ən incə MacBook Air. M5 ilə",
+        "note": "Artıq satışda",
+        "cta": "Kəşf et"
+      }
+    ],
+    "promo_blocks": [
+      {
+        "title": "Trade-In",
+        "desc": "Ən yaxşı qiymətə MacBook və ya iPhone-nuzu yeniləyin. Köhnə cihazı təhvil verin, endirim qazanın",
+        "cta": "Göndər"
+      },
+      {
+        "title": "Loyallıq Proqramı",
+        "desc": "Eksklüziv üstünlüklər əldə edin — hər alışla daha çox bonus qazanın, Xallar 10%-ə qədər dəyişdirilə bilər",
+        "cta": "Göndər"
+      },
+      {
+        "title": "Bloq",
+        "desc": "Xəbərlər, məhsul buraxılışları, həyat tərzi, şirkət hekayələri və yeniliklər",
+        "cta": "Göndər"
+      }
+    ],
+    "services": [
+      {
+        "label": "ÇATDIRILMA VƏ TƏHVİL",
+        "title": "Onlayn sifariş edin və evinizə çatdırılsın"
+      },
+      {
+        "label": "MALİYYƏ",
+        "title": "Xüsusi maliyyələşdirmə. Faizziz, hissə-hissə ödəyin"
+      },
+      {
+        "label": "SATIŞ",
+        "title": "Gündəlik sərfəli qiymətlər tapın, onlayn alın, çatdırılma və ya mağazadan götürün"
+      },
+      {
+        "label": "TRADE-IN",
+        "title": "iPhone 11 / iPhone 12-nizi yeniləyin"
+      }
+    ],
+    "featured": [
+      {
+        "title": "MacBook Neo 13\" A18 Pro",
+        "desc": "İldırım sürəti ilə. 13 düym displey, 512GB"
+      },
+      {
+        "title": "Qulaqlıq APPLE AirPods Max 2",
+        "desc": "Dinləmə. Yenidən master olundu"
+      },
+      {
+        "title": "iPhone 17 Pro Max",
+        "desc": "Xüsusiyyətlərlə dolu. Dəyərli paket"
+      }
+    ],
+    "carousel": [
+      {
+        "sub": "13.6 İN · 256GB · NARINCI",
+        "title": "iPhone 17 Pro, 256 GB, Kosmik Narıncı"
+      },
+      {
+        "sub": "6.1 İN · 128GB · ÇƏHRAYI",
+        "title": "iPhone 15, 128 GB, Çəhrayı"
+      },
+      {
+        "sub": "6.7 İN · 128GB · FIRUZƏYI",
+        "title": "iPhone 16, 128 GB, Firuzəyi"
+      },
+      {
+        "sub": "13.6 İN · 256GB · GECƏ YARISI",
+        "title": "MacBook Air M5"
+      }
+    ],
+    "offer_banner": "Təklif Visa kartı ilə onlayn taksitlə ödəniş zamanı etibarlıdır. Müraciət üçün Scan/eMoney Prime. Bütün alışlar Apple Pay və ya Google Pay ilə edilməlidir",
+    "view_all_apple": "Bütün Apple məhsullarına bax",
+    "see_whats_new": "Yenilikləri kəşf et",
+    "discover_services": "Xidmətlər və daha çoxu ilə tanış ol",
+    "buy_now": "İndi al",
+    "sale": "ENDİRİM",
+    "magic_outside": "Möcüzəvi xarici görünüş, innovativ daxili dizayn",
+    "new_badge": "YENİ",
+    "from_price": "{{price}} ₼-dan və ya {{monthly}} ₼/{{months}} ay",
+    "from_category_price": "{{price}}-dan"
+  },
+  "support": {
+    "hero": {
+      "badge": "Professional Texniki Dəstək",
+      "welcome": "Apple Cihazlarınıza",
+      "subtitle": "Lisenziyalı Apple texnisyenleri ilə cihazınız əmin əllərdədir. Ekran, batareya, su zədəsi və daha çox problem üçün etibarlı təmir",
+      "cta_primary": "Müraciət Et",
+      "cta_secondary": "Ətraflı Öyrən",
+      "image_alt": "Apple cihazları"
+    },
+    "device_selector": {
+      "badge": "Cihaz Seçin",
+      "title": "Hansı cihazınızı təmir etdirmək istəyirsiniz?",
+      "subtitle": "Brendinizi seçin, modeli göstərin, biz qalan işi görəcəyik",
+      "selected_device": "Seçilmiş cihaz:",
+      "continue_text": "Seçiminizi təsdiqləyin və daha ətraflı məlumat almaq üçün formu doldurun",
+      "cta": "Müraciət Formu Doldurun"
+    },
+    "why_choose": {
+      "badge": "Niyə Biz?",
+      "title": "Apple Mütəxəssislərinə Etibar Edin",
+      "subtitle": "İllər boyu toplanmış təcrübə, sertifikatlı heyət və rəsmi ehtiyat hissələri ilə xidmətinizdəyik"
+    },
+    "why_choose_items": [
+      { "icon": "shield", "title": "Rəsmi Zəmanət", "desc": "Hər təmir işi zəmanət sertifikatı ilə müşayiət olunur" },
+      { "icon": "wrench", "title": "Müasir Avadanlıq", "desc": "Apple standartlarına uyğun alət və texnologiyalar istifadə edirik" },
+      { "icon": "badge", "title": "Sertifikatlı Heyət", "desc": "Texnisyenlərimiz Apple tərəfindən sertifikatlaşdırılmışdır" },
+      { "icon": "truck", "title": "Sürətli Çatdırılma", "desc": "Əksər hallarda eyni gün xidmət imkanı təklif edirik" }
+    ],
+    "stats_section": {
+      "badge": "Nailiyyətlərimiz",
+      "title": "Rəqəmlər Danışır",
+      "subtitle": "Hər bir statistika arxasında bir müştəri məmnuniyyəti dayanır"
+    },
+    "stats_items": [
+      { "number": "15,000+", "title": "Uğurla Tamamlanmış Təmir" },
+      { "number": "98%", "title": "Müştəri Məmnuniyyəti" },
+      { "number": "8 il", "title": "Sənaye Təcrübəsi" },
+      { "number": "24/7", "title": "Texniki Dəstək" }
+    ],
+    "repair_form": {
+      "badge": "Müraciət Formu",
+      "title": "Cihazınızı Bizə Etibar Edin",
+      "subtitle": "Formu doldurun, ekspert heyətimiz ən qısa zamanda sizinlə əlaqə saxlayacaq",
+      "feature_parts": "Yalnız orijinal ehtiyat hissələri",
+      "feature_engineers": "Sertifikatlı Apple mühəndisləri",
+      "feature_warranty": "Hər təmir işinə zəmanət",
+      "submit_title": "Müraciəti Göndər",
+      "selected_device": "Seçilmiş cihazınız:",
+      "name_placeholder": "Ad Soyad",
+      "phone_placeholder": "Telefon nömrəsi",
+      "email_placeholder": "E-poçt ünvanı",
+      "problem_placeholder": "Problemin qısa təsviri",
+      "submit": "Göndər",
+      "submitting": "Göndərilir...",
+      "success_message": "Müraciətiniz uğurla qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq"
+    },
+    "faq_section": {
+      "badge": "Tez-tez Verilən Suallar",
+      "title": "Ən Çox Soruşulanlar",
+      "subtitle": "Ən çox soruşulan sualların cavablarını burada tapa bilərsiniz"
+    },
+    "faqs": [
+      { "title": "Təmir müddəti nə qədərdir?", "answer": "Əksər təmirlər 1-2 iş günü ərzində tamamlanır. Mürəkkəb vəziyyətlər üçün əlavə vaxt tələb oluna bilər" },
+      { "title": "Hansı ödəniş üsullarını qəbul edirsiniz?", "answer": "Nağd, bank kartı, onlayn ödəniş və hissə-hissə ödəniş seçimlərini qəbul edirik" },
+      { "title": "Orijinal hissələr istifadə edirsinizmi?", "answer": "Bəli, yalnız Apple tərəfindən təsdiqlənmiş orijinal ehtiyat hissələrindən istifadə edirik" },
+      { "title": "Zəmanət şərtləriniz necədir?", "answer": "Bütün təmir işlərinə 3-6 ay zəmanət veririk. Zəmanət dövründə hər hansı problem yaranarsa, pulsuz bərpa edirik" },
+      { "title": "Su zədəsi alan cihazları təmir edirsinizmi?", "answer": "Bəli, su zədəsi olan cihazları da qəbul edirik. Diaqnostikadan sonra mümkün həllər barəsində sizə məlumat veririk" }
+    ],
+    "contact": {
+      "badge": "Bizimlə Əlaqə",
+      "title": "Sizinlə Görüşməkdən Məmnunuq",
+      "subtitle": "Suallarınız var? Komandamız sizə kömək etmək üçün buradayıq",
+      "address_label": "Ünvan",
+      "phone_label": "Telefon",
+      "email_label": "E-poçt",
+      "hours_label": "İş Saatları",
+      "working_hours": "B.e – Cümə: 09:00 – 19:00"
+    }
+  }
+}
