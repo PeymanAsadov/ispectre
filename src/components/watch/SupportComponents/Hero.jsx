@@ -23,7 +23,8 @@ function Hero() {
           {t("hero.welcome")}
           <br />
           <span className="bg-gradient-to-r from-blue-600 to-sky-400 dark:from-blue-400 dark:to-sky-300 bg-clip-text text-transparent">
-            iSpectre Service Center
+             {t("hero.iSpectre Service Center")}
+
           </span>
         </h1>
 

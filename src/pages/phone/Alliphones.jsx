@@ -5,6 +5,7 @@ import staticIphones from "../../data/iphones";
 import { useTranslation } from "react-i18next";
 
 function Alliphones() {
+  const { t } = useTranslation();
   const [iphones, setIphones] = useState([]);
 
   useEffect(() => {
@@ -14,7 +15,7 @@ function Alliphones() {
 
   return (
     <IphoneSiralama
-      title="All iPhones"
+      title={t('nav.all_iphones')}
       iphones={iphones}
     />
   );

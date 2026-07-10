@@ -18,6 +18,10 @@ function CartDrawer({ isOpen, onClose }) {
   const [authOpen, setAuthOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
+  // Cart-ın görünüşü: isOpen true olsa belə, auth/checkout modalı açıqdırsa
+  // cart HEÇ VAXT görünmür (dərhal sürüşərək bağlanır).
+  const cartVisible = isOpen && !authOpen && !checkoutOpen;
+
   const refresh = () => setItems(getCart());
 
   const loadCurrentUser = () => {
@@ -37,12 +41,13 @@ function CartDrawer({ isOpen, onClose }) {
     if (isOpen) {
       refresh();
       loadCurrentUser();
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
     }
-    return () => (document.body.style.overflow = "");
   }, [isOpen]);
+
+  useEffect(() => {
+    document.body.style.overflow = cartVisible ? "hidden" : "";
+    return () => (document.body.style.overflow = "");
+  }, [cartVisible]);
 
   const total = items.reduce((sum, c) => sum + (c.qty || 1) * Number(c.price || 0), 0);
 
@@ -57,26 +62,33 @@ function CartDrawer({ isOpen, onClose }) {
   const handleCheckout = () => {
     if (!items.length) return;
 
-    // Login yoxlanışı: hər dəfə checkout basılanda ən güncəl user-i localStorage-dan oxu
     const stored = localStorage.getItem(STORAGE_CURRENT_USER);
     const user = stored ? JSON.parse(stored) : null;
 
     if (!user) {
-      // Login olmayıb -> AuthModal-ı aç, checkout-u dayandır
       setCurrentUser(null);
-      setAuthOpen(true);
+      setAuthOpen(true); // -> cartVisible dərhal false olur
       return;
     }
 
     setCurrentUser(user);
-    setCheckoutOpen(true);
+    setCheckoutOpen(true); // -> cartVisible dərhal false olur
   };
 
   const handleAuthSuccess = (user) => {
-    // Login/qeydiyyat uğurlu oldu -> modalı bağla, avtomatik checkout-a keç
     setCurrentUser(user);
     setAuthOpen(false);
     setCheckoutOpen(true);
+  };
+
+  const handleAuthClose = () => {
+    setAuthOpen(false);
+    onClose();
+  };
+
+  const handleCheckoutClose = () => {
+    setCheckoutOpen(false);
+    onClose();
   };
 
   const handleOrderSuccess = () => {
@@ -112,13 +124,13 @@ function CartDrawer({ isOpen, onClose }) {
       <div
         onClick={onClose}
         className={`fixed inset-0 bg-black/50 z-[100] transition-opacity duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          cartVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       />
 
       <div
         className={`fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white dark:bg-[#18181B] z-[101] shadow-[-8px_0_40px_rgba(0,0,0,0.15)] dark:shadow-[-8px_0_40px_rgba(0,0,0,0.5)] transform transition-transform duration-300 ease-out flex flex-col ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          cartVisible ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 dark:border-[#3F3F46]">
@@ -200,7 +212,7 @@ function CartDrawer({ isOpen, onClose }) {
                     </p>
                     <button
                       onClick={() => handleAddSuggested(item)}
-                      className="w-full mt-2 py-2 rounded-full border border-black dark:border-white text-xs font-semibold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition text-gray-900 dark:text-gray-100"
+                      className="w-full mt-2 py-2 rounded-full border border-black dark:border-white text-xs font-semibold hover:bg-black hover:text-white dark:hover:bg-[white] dark:hover:text-black transition text-gray-900 dark:text-gray-100"
                     >
                       {t("cart.add_to_cart")}
                     </button>
@@ -230,17 +242,16 @@ function CartDrawer({ isOpen, onClose }) {
         )}
       </div>
 
-      {/* İstifadəçi login deyilsə, checkout əvəzinə bu açılır */}
       <AuthModal
         isOpen={authOpen}
-        onClose={() => setAuthOpen(false)}
+        onClose={handleAuthClose}
         onLoginSuccess={handleAuthSuccess}
         redirectOnLogin={false}
       />
 
       <CheckoutModal
         isOpen={checkoutOpen}
-        onClose={() => setCheckoutOpen(false)}
+        onClose={handleCheckoutClose}
         user={currentUser}
         onSuccess={handleOrderSuccess}
       />

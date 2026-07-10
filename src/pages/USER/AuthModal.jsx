@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { X, AlertCircle, CheckCircle2, ChevronDown } from "lucide-react";
 import {
   COUNTRIES,
@@ -84,12 +85,12 @@ function CountryPicker({ value, onChange }) {
 }
 
 function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
-  // Component States
-  const [mode, setMode] = useState("login"); // "login" | "register"
-  const [loginMethod, setLoginMethod] = useState("email"); // "email" | "phone"
-  const [loginPhoneCountry, setLoginPhoneCountry] = useState("AZ"); // Default country code id
+  const [mode, setMode] = useState("login");
+  const [loginMethod, setLoginMethod] = useState("email");
+  const [loginPhoneCountry, setLoginPhoneCountry] = useState("AZ");
   const [loginPhoneDigits, setLoginPhoneDigits] = useState("");
 
   const [loginForm, setLoginForm] = useState({ identifier: "", password: "" });
@@ -107,7 +108,6 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
   const [successMsg, setSuccessMsg] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Derived Country Configurations
   const loginCountry = getCountryById(loginPhoneCountry);
   const registerCountry = getCountryById(registerForm.phoneCountry);
 
@@ -124,7 +124,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
     const user = findUser(identifier, loginForm.password);
 
     if (!user) {
-      setLoginError("E-poçt/Telefon və ya şifrə yanlışdır.");
+      setLoginError(t("auth.errors.invalid_credentials"));
       setLoading(false);
       return;
     }
@@ -142,26 +142,28 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
     setSuccessMsg("");
 
     if (!registerForm.name.trim() || !registerForm.surname.trim()) {
-      setRegisterError("Ad və soyad boş ola bilməz.");
+      setRegisterError(t("auth.errors.name_surname_empty"));
       return;
     }
     if (!isValidEmail(registerForm.email)) {
-      setRegisterError("Email düzgün formatda deyil.");
+      setRegisterError(t("auth.errors.email_invalid"));
       return;
     }
     if (!isCompletePhone(registerCountry, registerForm.phoneDigits)) {
-      setRegisterError(`Telefon nömrəsini tam daxil edin: ${PLACEHOLDERS[registerCountry.id]}`);
+      setRegisterError(
+        t("auth.errors.phone_incomplete", { placeholder: PLACEHOLDERS[registerCountry.id] })
+      );
       return;
     }
     if (!registerForm.password || registerForm.password.length < 8) {
-      setRegisterError("Şifrə ən azı 8 simvol olmalıdır.");
+      setRegisterError(t("auth.errors.password_min_length"));
       return;
     }
 
     const phone = formatFull(registerCountry, registerForm.phoneDigits);
 
     if (userExists(registerForm.email, phone)) {
-      setRegisterError("Bu email və ya telefon nömrəsi ilə hesab artıq mövcuddur.");
+      setRegisterError(t("auth.errors.account_exists"));
       return;
     }
 
@@ -181,7 +183,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
     saveUser(newUser);
     saveCurrentUser(newUser);
     onLoginSuccess?.(newUser);
-    setSuccessMsg("Qeydiyyat uğurla tamamlandı.");
+    setSuccessMsg(t("auth.register_success"));
     setLoading(false);
 
     setTimeout(() => {
@@ -193,7 +195,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 dark:bg-black/60 backdrop-blur-md p-4">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/30 dark:bg-black/60 backdrop-blur-md p-4">
       <div className="relative w-full max-w-md bg-white/95 dark:bg-[#18181B]/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/60 dark:border-[#3F3F46]">
         <button
           onClick={onClose}
@@ -203,7 +205,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
         </button>
 
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center">
-          {mode === "login" ? "Giriş" : "Qeydiyyat"}
+          {mode === "login" ? t("auth.login_title") : t("auth.register_title")}
         </h2>
 
         {successMsg && (
@@ -228,7 +230,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
                     : "text-gray-500 dark:text-gray-400"
                 }`}
               >
-                Email
+                {t("auth.email_tab")}
               </button>
               <button
                 type="button"
@@ -242,7 +244,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
                     : "text-gray-500 dark:text-gray-400"
                 }`}
               >
-                Telefon
+                {t("auth.phone_tab")}
               </button>
             </div>
 
@@ -250,7 +252,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
               <input
                 type="email"
                 autoComplete="email"
-                placeholder="email@nümunə.com"
+                placeholder={t("auth.email_placeholder")}
                 value={loginForm.identifier}
                 onChange={(e) => {
                   setLoginForm({ ...loginForm, identifier: e.target.value });
@@ -286,7 +288,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
             <input
               type="password"
               autoComplete="current-password"
-              placeholder="Şifrə"
+              placeholder={t("auth.password_placeholder")}
               value={loginForm.password}
               onChange={(e) => {
                 setLoginForm({ ...loginForm, password: e.target.value });
@@ -306,10 +308,10 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
               disabled={loading}
               className="w-full bg-[#1D2530] dark:bg-white hover:bg-slate-800 dark:hover:bg-gray-200 disabled:bg-[#1d2530]/50 dark:disabled:bg-white/50 disabled:cursor-not-allowed text-white dark:text-[#18181B] py-3 rounded-xl font-medium text-sm transition"
             >
-              {loading ? "Daxil olunur..." : "Daxil ol"}
+              {loading ? t("auth.logging_in") : t("auth.login_button")}
             </button>
             <p className="text-center text-sm text-gray-500 dark:text-gray-400 pt-2">
-              Hesabınız yoxdur?{" "}
+              {t("auth.no_account")}{" "}
               <button
                 type="button"
                 onClick={() => {
@@ -318,7 +320,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
                 }}
                 className="text-[#1D2530] dark:text-white font-semibold hover:underline"
               >
-                Qeydiyyatdan keç
+                {t("auth.go_to_register")}
               </button>
             </p>
           </form>
@@ -328,7 +330,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
               <input
                 type="text"
                 autoComplete="given-name"
-                placeholder="Ad"
+                placeholder={t("auth.name_placeholder")}
                 value={registerForm.name}
                 onChange={(e) => setRegisterForm({ ...registerForm, name: e.target.value })}
                 className="w-1/2 border border-gray-200 dark:border-[#3F3F46] bg-white dark:bg-[#27272A] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition"
@@ -337,7 +339,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
               <input
                 type="text"
                 autoComplete="family-name"
-                placeholder="Soyad"
+                placeholder={t("auth.surname_placeholder")}
                 value={registerForm.surname}
                 onChange={(e) => setRegisterForm({ ...registerForm, surname: e.target.value })}
                 className="w-1/2 border border-gray-200 dark:border-[#3F3F46] bg-white dark:bg-[#27272A] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition"
@@ -347,7 +349,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
             <input
               type="email"
               autoComplete="email"
-              placeholder="Email"
+              placeholder={t("auth.email_placeholder")}
               value={registerForm.email}
               onChange={(e) => setRegisterForm({ ...registerForm, email: e.target.value })}
               className="w-full border border-gray-200 dark:border-[#3F3F46] bg-white dark:bg-[#27272A] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition"
@@ -385,7 +387,7 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
             <input
               type="password"
               autoComplete="new-password"
-              placeholder="Şifrə"
+              placeholder={t("auth.password_placeholder")}
               value={registerForm.password}
               onChange={(e) => setRegisterForm({ ...registerForm, password: e.target.value })}
               className="w-full border border-gray-200 dark:border-[#3F3F46] bg-white dark:bg-[#27272A] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition"
@@ -402,16 +404,16 @@ function AuthModal({ isOpen, onClose, onLoginSuccess, redirectOnLogin = true }) 
               disabled={loading}
               className="w-full bg-[#1D2530] dark:bg-white hover:bg-slate-800 dark:hover:bg-gray-200 disabled:bg-[#1d2530]/50 dark:disabled:bg-white/50 disabled:cursor-not-allowed text-white dark:text-[#18181B] py-3 rounded-xl font-medium text-sm transition"
             >
-              {loading ? "Hesab yaradılır..." : "Hesab yarat"}
+              {loading ? t("auth.creating_account") : t("auth.create_account_button")}
             </button>
             <p className="text-center text-sm text-gray-500 dark:text-gray-400 pt-2">
-              Artıq hesabınız var?{" "}
+              {t("auth.have_account")}{" "}
               <button
                 type="button"
                 onClick={() => setMode("login")}
                 className="text-[#1D2530] dark:text-white font-semibold hover:underline"
               >
-                Daxil ol
+                {t("auth.go_to_login")}
               </button>
             </p>
           </form>

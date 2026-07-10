@@ -56,10 +56,11 @@ function RepairForm({ device, selectedModel }) {
           </div>
           <div>
             <p className="font-semibold text-gray-900 dark:text-white">
-              {t("Success Message")}
+              {t("support.repair_form.Success Message")
+}
             </p>
             <p className="text-sm text-gray-500 dark:text-slate-400">
-              {t("Selected Device")}: {selectedModel}
+              {t("support.repair_form.Selected Device")}: {selectedModel}
             </p>
           </div>
           <button
@@ -74,10 +75,10 @@ function RepairForm({ device, selectedModel }) {
       {/* FORMA */}
       <div className="max-w-2xl mx-auto px-6">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-          {t("Title")}
+          {t("support.repair_form.Title")}
         </h2>
         <p className="text-sm text-gray-500 dark:text-slate-400 mb-10 text-center">
-          {t("Subtitle")} — {device} / {selectedModel}
+          {t("support.repair_form.Subtitle")} — {device} / {selectedModel}
         </p>
 
         <form
@@ -86,14 +87,14 @@ function RepairForm({ device, selectedModel }) {
         >
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-              {t("Name")}
+              {t("support.repair_form.Name")}
             </label>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder={t("Name")}
+              placeholder={t("support.repair_form.Name")}
               className="w-full border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:border-blue-500"
               required
             />
@@ -101,14 +102,14 @@ function RepairForm({ device, selectedModel }) {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-              {t("Phone")}
+              {t("support.repair_form.Phone")}
             </label>
             <input
               type="tel"
               name="phone"
               value={form.phone}
               onChange={handleChange}
-              placeholder={t("Phone")}
+              placeholder={t("support.repair_form.Phone")}
               className="w-full border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:border-blue-500"
               required
             />
@@ -116,22 +117,24 @@ function RepairForm({ device, selectedModel }) {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-              {t("Description")}
+              {t("support.repair_form.Description")
+}
             </label>
             <textarea
-              name="description"
+              name="support.repair_form.Description"
               value={form.description}
               onChange={handleChange}
-              placeholder={t("Description")}
+              placeholder={t("support.repair_form.Description")}
               rows={4}
               className="w-full border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:border-blue-500 resize-none"
             />
           </div>
 
-          {/* ŞƏKİL YÜKLƏMƏ */}
+          {/* Upload Photo */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-              {t("Images")}
+              {t("support.repair_form.Images")
+}
             </label>
 
             <div className="flex flex-wrap gap-3">
@@ -171,7 +174,8 @@ function RepairForm({ device, selectedModel }) {
             className="w-full flex items-center justify-center gap-2 bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-medium py-3.5 rounded-xl hover:bg-slate-800 dark:hover:bg-gray-200 transition"
           >
             <CheckCircle2 size={18} />
-            {t("Submit")}
+            {t("support.repair_form.Submit")
+}
           </button>
         </form>
       </div>

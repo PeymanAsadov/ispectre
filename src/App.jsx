@@ -82,6 +82,10 @@ import AppleTvProduct from "./pages/apple TV/AppleTv";
 import TvRemote from "./pages/apple TV/Tvremote";
 import TvDetail from "./components/watch/AppleTV/TvDetail";
 
+
+// scroll
+import ScrollToTop from "./components/watch/ScrollToTop";
+
 // 404
 import Notfound from "./notfound";
 
@@ -98,7 +102,10 @@ function App() {
 
   return (
     <>
+                  <ScrollToTop />
+
       <Routes>
+
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/support" element={<Support />} />

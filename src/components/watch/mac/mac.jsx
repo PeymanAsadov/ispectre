@@ -1,135 +1,306 @@
-import { useMemo, memo } from "react";
-import { Link } from "react-router-dom";
-import { addToCart } from "../../../utils/cartUtils";
+import { useState, useEffect, useMemo, useCallback } from "react";
+import Macbook from "./mac";
 import { useTranslation } from "react-i18next";
 
-const MacCard = memo(({ item }) => {
+function MacSiralama({ title, macbooks = [] }) {
   const { t } = useTranslation();
+
+  const allCards = useMemo(() => {
+    const cards = [];
+    macbooks.forEach((product) => {
+      product.colors?.forEach((color) => {
+        if (!color.storage?.length) return;
+        const prices = color.storage.map((s) => Number(s.price));
+        const minPrice = Math.min(...prices);
+        cards.push({
+          model: product.model,
+          color: color.name,
+          price: minPrice,
+          storage: color.storage,
+        });
+      });
+    });
+    return cards;
+  }, [macbooks]);
+
+  const highestPrice = useMemo(() => {
+    let max = 0;
+    allCards.forEach((card) => {
+      card.storage.forEach((s) => {
+        if (Number(s.price) > max) max = Number(s.price);
+      });
+    });
+    return max || 10000;
+  }, [allCards]);
+
+  const [priceRange, setPriceRange] = useState([0, highestPrice]);
+  const [minInput, setMinInput] = useState("0");
+  const [maxInput, setMaxInput] = useState(String(highestPrice));
+  const [sortBy, setSortBy] = useState("");
+  const [selectedModel, setSelectedModel] = useState([]);
+  const [selectedColor, setSelectedColor] = useState([]);
+  const [selectedMemory, setSelectedMemory] = useState([]);
+  const [filterOpen, setFilterOpen] = useState(false);
+
+  useEffect(() => {
+    setPriceRange([0, highestPrice]);
+    setMinInput("0");
+    setMaxInput(String(highestPrice));
+  }, [highestPrice]);
+
+  const allModels = useMemo(
+    () => [...new Set(allCards.map((c) => c.model))],
+    [allCards]
+  );
+
+  const allColors = useMemo(
+    () => [...new Set(allCards.map((c) => c.color))],
+    [allCards]
+  );
+
+  const allMemory = useMemo(() => {
+    const set = new Set();
+    allCards.forEach((card) => {
+      card.storage.forEach((s) => set.add(s.size.trim()));
+    });
+    return [...set];
+  }, [allCards]);
+
+  const getModelCount = (model) =>
+    allCards.filter((c) => c.model === model).length;
+
+  const getColorCount = (color) =>
+    allCards.filter((c) => c.color === color).length;
+
+  const getMemoryCount = (memory) =>
+    allCards.filter((card) =>
+      card.storage.some((s) => s.size.trim() === memory)
+    ).length;
+
+  const toggle = useCallback((value, selected, setSelected) => {
+    setSelected(
+      selected.includes(value)
+        ? selected.filter((i) => i !== value)
+        : [...selected, value]
+    );
+  }, []);
+
+  const filterSidebar = (
+    <div className="space-y-6">
+      <div className="bg-white dark:bg-[#1c1c1e] rounded-3xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm">
+        <h3 className="font-bold text-xl mb-5">{t('filters.price')}</h3>
+        <div className="flex gap-3 mb-4">
+          <input
+            type="number"
+            min={0}
+            value={minInput}
+            placeholder="0"
+            onChange={(e) => {
+              const raw = e.target.value;
+              if (raw === "") {
+                setMinInput("");
+                setPriceRange([0, priceRange[1]]);
+                return;
+              }
+              if (!/^[0-9]+$/.test(raw)) return;
+              const num = Number(raw);
+              setMinInput(raw);
+              setPriceRange([num, priceRange[1]]);
+            }}
+            onBlur={() => {
+              if (minInput === "") setMinInput("0");
+            }}
+            className="w-1/2 border border-gray-200 dark:border-gray-700 dark:bg-[#232326] dark:text-gray-100 rounded-xl p-3 text-center text-sm focus:outline-none"
+          />
+          <input
+            type="number"
+            min={0}
+            value={maxInput}
+            placeholder="0"
+            onChange={(e) => {
+              const raw = e.target.value;
+              if (raw === "") {
+                setMaxInput("");
+                setPriceRange([priceRange[0], 0]);
+                return;
+              }
+              if (!/^[0-9]+$/.test(raw)) return;
+              const num = Number(raw);
+              setMaxInput(raw);
+              setPriceRange([priceRange[0], num]);
+            }}
+            onBlur={() => {
+              if (maxInput === "") setMaxInput("0");
+            }}
+            className="w-1/2 border border-gray-200 dark:border-gray-700 dark:bg-[#232326] dark:text-gray-100 rounded-xl p-3 text-center text-sm focus:outline-none"
+          />
+        </div>
+        <input
+          type="range"
+          min={0}
+          max={highestPrice}
+          value={priceRange[0]}
+          onChange={(e) => {
+            const num = Number(e.target.value);
+            setPriceRange([num, priceRange[1]]);
+            setMinInput(String(num));
+          }}
+          className="w-full accent-black dark:accent-slate-500 mb-3"
+        />
+        <input
+          type="range"
+          min={0}
+          max={highestPrice}
+          value={priceRange[1]}
+          onChange={(e) => {
+            const num = Number(e.target.value);
+            setPriceRange([priceRange[0], num]);
+            setMaxInput(String(num));
+          }}
+          className="w-full accent-black dark:accent-slate-500"
+        />
+      </div>
+
+      <div className="bg-white dark:bg-[#1c1c1e] rounded-3xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm">
+        <h3 className="font-bold text-xl mb-4">{t('filters.sort')}</h3>
+        <select
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+          className="w-full border border-gray-200 dark:border-gray-700 rounded-xl p-4 text-sm bg-white dark:bg-[#232326] dark:text-gray-100 cursor-pointer focus:outline-none"
+        >
+          <option value="">{t('filters.select')}</option>
+          <option value="cheap">{t('filters.cheap_to_expensive')}</option>
+          <option value="expensive">{t('filters.expensive_to_cheap')}</option>
+        </select>
+      </div>
+
+      {allModels.length > 1 && (
+        <div className="bg-white dark:bg-[#1c1c1e] rounded-3xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm">
+          <h3 className="font-bold text-xl mb-5">{t('filters.model')}</h3>
+          <div className="space-y-4">
+            {allModels.map((model) => (
+              <label key={model} className="flex items-center justify-between cursor-pointer">
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={selectedModel.includes(model)}
+                    onChange={() => toggle(model, selectedModel, setSelectedModel)}
+                    className="accent-black dark:accent-slate-500"
+                  />
+                  <span className="ml-3 text-sm text-gray-700 dark:text-gray-300">{model}</span>
+                </div>
+                <span className="text-sm text-gray-400 dark:text-gray-500">({getModelCount(model)})</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="bg-white dark:bg-[#1c1c1e] rounded-3xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm">
+        <h3 className="font-bold text-xl mb-5">{t('filters.color')}</h3>
+        <div className="space-y-4 max-h-64 overflow-y-auto">
+          {allColors.map((color) => (
+            <label key={color} className="flex items-center justify-between cursor-pointer">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={selectedColor.includes(color)}
+                  onChange={() => toggle(color, selectedColor, setSelectedColor)}
+                  className="accent-black dark:accent-slate-500"
+                />
+                <span className="ml-3 text-sm text-gray-700 dark:text-gray-300">{color}</span>
+              </div>
+              <span className="text-sm text-gray-400 dark:text-gray-500">({getColorCount(color)})</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-white dark:bg-[#1c1c1e] rounded-3xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm">
+        <h3 className="font-bold text-xl mb-5">{t('filters.storage')}</h3>
+        <div className="space-y-4 max-h-64 overflow-y-auto">
+          {allMemory.map((memory) => (
+            <label key={memory} className="flex items-center justify-between cursor-pointer">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={selectedMemory.includes(memory)}
+                  onChange={() => toggle(memory, selectedMemory, setSelectedMemory)}
+                  className="accent-black dark:accent-slate-500"
+                />
+                <span className="ml-3 text-sm text-gray-700 dark:text-gray-300">{memory}</span>
+              </div>
+              <span className="text-sm text-gray-400 dark:text-gray-500">({getMemoryCount(memory)})</span>
+            </label>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
-    <Link
-      to={`/macbook/${item.id}?color=${encodeURIComponent(item.color)}`}
-      className="group flex flex-col justify-between bg-white dark:bg-[#1c1c1e] p-6 rounded-[32px] border border-gray-100 dark:border-gray-700/50 hover:shadow-xl hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 hover:-translate-y-1"
-    >
-      <div>
-        <div className="w-full h-[220px] flex items-center justify-center overflow-hidden">
-          <img
-            src={item.img}
-            alt={`${item.model} ${item.color}`}
-            loading="lazy"
-            decoding="async"
-            className="max-h-[190px] object-contain group-hover:scale-105 transition-transform duration-300"
+    <div className="w-full min-h-screen bg-[#f5f5f7] dark:bg-[#0f0f13] text-[#1d1d1f] dark:text-gray-100 pb-24 transition-colors duration-300">
+
+      {filterOpen && (
+        <div className="fixed inset-0 z-50 flex lg:hidden">
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setFilterOpen(false)} />
+          <div className="relative ml-auto w-full max-w-sm h-full bg-[#f5f5f7] dark:bg-[#1a1a1e] overflow-y-auto p-6 shadow-2xl flex flex-col gap-4">
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">{t('filters.title')}</h2>
+              <button onClick={() => setFilterOpen(false)}
+                className="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                ✕
+              </button>
+            </div>
+            {filterSidebar}
+            <button onClick={() => setFilterOpen(false)}
+              className="mt-4 w-full py-3 rounded-2xl bg-black dark:bg-slate-700 text-white font-semibold hover:bg-gray-800 dark:hover:bg-slate-600 transition">
+              {t('filters.apply')}
+            </button>
+          </div>
+        </div>
+      )}
+
+      <h1 className="text-2xl md:text-4xl font-bold px-4 md:px-10 lg:mx-20 py-6 md:py-8">{title}</h1>
+
+      <div className="lg:hidden px-4 md:px-10 mb-4">
+        <button
+          onClick={() => setFilterOpen(true)}
+          className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white dark:bg-[#1c1c1e] border border-gray-200 dark:border-gray-700 shadow-sm text-sm font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h18M7 8h10M10 12h4" />
+          </svg>
+          {t('filters.title')}
+          {(selectedModel.length + selectedColor.length + selectedMemory.length) > 0 && (
+            <span className="ml-1 bg-black dark:bg-slate-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              {selectedModel.length + selectedColor.length + selectedMemory.length}
+            </span>
+          )}
+        </button>
+      </div>
+
+      <div className="flex flex-col lg:flex-row px-4 md:px-10 lg:mx-20 gap-6 lg:gap-12">
+
+        <div className="hidden lg:block w-80 flex-shrink-0">
+          {filterSidebar}
+        </div>
+
+        <div className="flex-1">
+          <Macbook
+            macbooks={macbooks}
+            minPrice={priceRange[0]}
+            maxPrice={priceRange[1]}
+            selectedModel={selectedModel}
+            selectedColor={selectedColor}
+            selectedMemory={selectedMemory}
+            sortBy={sortBy}
           />
         </div>
 
-        <h3 className="mt-4 text-center font-semibold text-base tracking-tight text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-          {item.model}
-        </h3>
-
-        <p className="text-center text-xs text-gray-500 dark:text-gray-400 mt-1">{item.color}</p>
       </div>
-
-      <div className="mt-5 border-t border-gray-100 dark:border-gray-700/50 pt-4 text-center">
-        <p className="font-bold text-lg text-gray-900 dark:text-gray-100">{t('product.from_price_suffix', { price: item.price.toLocaleString() })}</p>
-        <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">{t('product.monthly_price', { price: item.monthly })}</p>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            addToCart({
-              id: item.id,
-              model: item.model,
-              color: item.color,
-              size: "Default",
-              price: item.price,
-              img: item.img,
-            });
-          }}
-          className="w-full mt-4 py-3 rounded-full bg-black text-white font-semibold hover:bg-gray-800 dark:bg-slate-700 dark:hover:bg-slate-600 transition"
-        >
-          {t('cart.add_to_cart')}
-        </button>
-      </div>
-    </Link>
-  );
-});
-
-MacCard.displayName = "MacCard";
-
-function Macbook({
-  macbooks = [],
-  minPrice,
-  maxPrice,
-  selectedModel = [],
-  selectedColor = [],
-  selectedMemory = [],
-  sortBy = "",
-}) {
-  const { t } = useTranslation();
-
-  const filteredCards = useMemo(() => {
-    const cards = [];
-
-    macbooks.forEach((product) => {
-      if (selectedModel.length && !selectedModel.includes(product.model)) return;
-
-      product.colors?.forEach((color) => {
-        if (selectedColor.length && !selectedColor.includes(color.name)) return;
-
-        let minPriceForColor = Infinity;
-        let hasValid = false;
-
-        color.storage?.forEach((s) => {
-          const price = Number(s.price);
-          const size = s.size.trim();
-
-          if (selectedMemory.length && !selectedMemory.includes(size)) return;
-          if (minPrice !== undefined && price < Number(minPrice)) return;
-          if (maxPrice !== undefined && price > Number(maxPrice)) return;
-
-          hasValid = true;
-          if (price < minPriceForColor) minPriceForColor = price;
-        });
-
-        if (hasValid) {
-          cards.push({
-            id: product.id,
-            model: product.model,
-            color: color.name,
-            img: color.images?.[0]?.url || "",
-            price: minPriceForColor,
-            monthly: Math.ceil(minPriceForColor / 12),
-          });
-        }
-      });
-    });
-
-    return cards;
-  }, [macbooks, minPrice, maxPrice, selectedModel, selectedColor, selectedMemory]);
-
-  const processedCards = useMemo(() => {
-    const cards = [...filteredCards];
-    if (sortBy === "cheap") cards.sort((a, b) => a.price - b.price);
-    if (sortBy === "expensive") cards.sort((a, b) => b.price - a.price);
-    return cards;
-  }, [filteredCards, sortBy]);
-
-  return (
-    <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-2 animate-fade-in">
-        {processedCards.map((item) => (
-          <MacCard key={`${item.id}-${item.color}`} item={item} />
-        ))}
-      </div>
-
-      {processedCards.length === 0 && (
-        <div className="py-20 mt-6 text-center bg-white dark:bg-[#1c1c1e] rounded-3xl border border-dashed border-gray-200 dark:border-gray-700/50">
-          <p className="text-gray-500 dark:text-gray-400 text-lg">
-            {t('filters.no_results')}
-          </p>
-        </div>
-      )}
     </div>
   );
 }
 
-export default Macbook;
+export default MacSiralama;

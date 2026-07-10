@@ -1,5 +1,5 @@
 export const models = {
-  iphone: [
+  iPhone: [
     "iPhone 17",
     "iPhone 17 Pro",
     "iPhone 17 Pro Max",
@@ -11,43 +11,43 @@ export const models = {
     "iPhone 15 Pro Max",
   ],
 
-  mac: [
+  Mac: [
     "MacBook Air M4",
     "MacBook Air M5",
     "MacBook Neo",
     "MacBook Pro M5",
   ],
 
-  airpods: [
+  Airpods: [
     "AirPods 2",
     "AirPods 3",
     "AirPods 4",
     "AirPods Max",
   ],
-  watch: [
+  Watch: [
     "Apple Watch Series 11",
     "Apple Watch SE",
     "Apple Watch Ultra 2",
   ],
-  display:[
+  Display:[
     "Display Studio",
     "Display XDR",
   ],
-  ipad:[
+  iPad:[
     "iPad Pro",
     "iPad Air",
     "iPad",
     "iPad Mini",
   ],
-  vision:[
+  Vision:[
     "Vision Pro M2",
     "Vision Pro M5",
   ],
-  "apple tv":[
+  "Apple tv":[
     "Apple TV",
     "Apple TV Remote",
   ],
-  accessories:[
+  Accessories:[
     "Apple Pencil",
     "Apple Keyboard",["Magic Keyboard","Magic Keyboard with Touch ID"],
     "Apple Mouse",

@@ -40,8 +40,8 @@ function Contact() {
         href={`https://wa.me/${contactInfo.whatsapp}`} 
         target="_blank" 
         rel="noreferrer" 
-className="fixed bottom-24 right-7 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl transition hover:scale-110"      > 
-        <MessageCircle size={30} /> 
+className="fixed bottom-24 right-5 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl transition hover:scale-110 text-[36px] "      > 
+         <i   class="fa-brands fa-whatsapp"></i>
       </a> 
     </> 
   ); 

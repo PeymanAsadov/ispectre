@@ -145,7 +145,7 @@ const featuredProducts = {
     badgeSub: "10% · 15% · 20%",
     title: 'MacBook Neo 13" A18 Pro',
     desc: "Lightning fast. 13-inch display, 512GB.",
-    price: "From 1 799 ₼",
+    price: "1 799 ₼",
     image: "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/72/38/7238e36f7f59ad1c9824aa518449cba0/260305150018795522.webp",
     link: "/macbook-neo",
   },
@@ -155,7 +155,7 @@ const featuredProducts = {
       badgeSub: "10% · 15% · 20%",
       title: "Headphones APPLE AirPods Max 2",
       desc: "Listening. Remastered.",
-      price: "From 1 519 ₼",
+      price: "1 519 ₼",
       image: "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/ca/92/ca92de81804d93d655f5b235cf8c0a6a/260317150014868397.webp",
       link: "/airpods",
     },
@@ -164,7 +164,7 @@ const featuredProducts = {
       badgeSub: "10% · 20% · 30%",
       title: "iPhone 17 Pro Max",
       desc: "Feature stacked. Value packed.",
-      price: "From 3250 ₼",
+      price: "3250 ₼",
       image: "https://storage.irshad.az/products/resized/EpEkMw1yMU6081k2meTvefdTdr7LxXbuB7Eq6sZV.png",
       link: "/iphone17",
     },
@@ -184,27 +184,27 @@ const featuredProducts = {
   },
   {
     id: 2,
-    sub: "6.1 IN · 128GB · PINK",
-    title: "iPhone 15, 128 GB, Pink",
-    price: "1 590 ₼",
-    image: iphones[1]?.colors?.[1]?.img || "https://files.refurbed.com/ii/iphone-15-pro-max-1694584620.jpg?t=fitdesign&h=600&w=800&t=convert&f=webp",
+    sub: "6.1 IN · 128GB · Gray",
+    title: "iPhone 15 Pro, 256 GB, Gray",
+    price: "1 990 ₼",
+    image: iphones[1]?.colors?.[1]?.img || "https://cuongmobilecantho.com/wp-content/uploads/2025/03/01-510x510.png",
     link: "/iphone15",
   },
   {
     id: 3,
     sub: "6.7 IN · 128GB · TEAL",
-    title: "iPhone 16, 128 GB, Teal",
-    price: "2 190 ₼",
-    image: iphones[2]?.colors?.[2]?.img || "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/fa/c9/fac9c8a6fc67e3c781179a54d030443d/260303130020287034.webp",
+    title: "iPhone 16 Pro Max, 512 GB, Teal",
+    price: "2 799 ₼",
+    image: iphones[2]?.colors?.[2]?.img || "https://assets.smartelectronics.az/Assets/cdn-cgi?path=4c921eb1-6eef-4619-bcb6-f0e42394806a.webp",
     link: "/iphone16",
   },
   {
     id: 4,
-    sub: "13.6 IN · 256GB · MIDNIGHT",
-    title: "MacBook Air M5",
-    price: "2 600 ₼",
-    image: macbooks[3]?.colors?.[0]?.img || "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/72/38/7238e36f7f59ad1c9824aa518449cba0/260305150018795522.webp",
-    link: "/macbook-air",
+    sub: "13.6 IN · 256GB BLACK",
+    title: "MacBook PRO M5",
+    price: "3 999 ₼",
+    image: macbooks[3]?.colors?.[0]?.img || "https://epalle.co.il/wp-content/uploads/2023/11/macbook-pro-16-m3-space-black-0.webp",
+    link: "/macbook-pro",
   },
 ];
 
@@ -217,8 +217,51 @@ const featuredProducts = {
   const [carouselIdx, setCarouselIdx] = useState(0);
   const scrollContainerRef = useRef(null);
   const categoryScrollRef = useRef(null);
-  const categoryScrollLeft = () => categoryScrollRef.current?.scrollBy({ left: -160, behavior: "smooth" });
-  const categoryScrollRight = () => categoryScrollRef.current?.scrollBy({ left: 160, behavior: "smooth" });
+
+  // ── Arrow visibility state (left arrow hidden until scrolled, right arrow hidden at the end) ──
+  const [newArrows, setNewArrows] = useState({ left: false, right: true });
+  const [catArrows, setCatArrows] = useState({ left: false, right: true });
+
+  const updateNewArrows = () => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    setNewArrows({
+      left: el.scrollLeft > 5,
+      right: el.scrollLeft < maxScroll - 5,
+    });
+  };
+
+  const updateCatArrows = () => {
+    const el = categoryScrollRef.current;
+    if (!el) return;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    setCatArrows({
+      left: el.scrollLeft > 5,
+      right: el.scrollLeft < maxScroll - 5,
+    });
+  };
+
+  // Eased smooth-scroll (same 500ms feel as the "magic on the outside" carousel's slide transition)
+  const smoothScrollBy = (el, distance, duration = 500) => {
+    if (!el) return;
+    const start = el.scrollLeft;
+    const startTime = performance.now();
+    const easeInOutQuad = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      el.scrollLeft = start + distance * easeInOutQuad(progress);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  const categoryScrollLeft = () => smoothScrollBy(categoryScrollRef.current, -160);
+  const categoryScrollRight = () => smoothScrollBy(categoryScrollRef.current, 160);
 
   const [visibleCount, setVisibleCount] = useState(3);
   useEffect(() => {
@@ -230,10 +273,23 @@ const featuredProducts = {
       } else {
         setVisibleCount(3);
       }
+      updateNewArrows();
+      updateCatArrows();
     };
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Re-check arrow visibility once images/content have laid out (widths depend on loaded images)
+  useEffect(() => {
+    updateNewArrows();
+    updateCatArrows();
+    const t1 = setTimeout(() => {
+      updateNewArrows();
+      updateCatArrows();
+    }, 500);
+    return () => clearTimeout(t1);
   }, []);
 
   const translatedHeroSlides = heroSlides.map((slide, i) => ({
@@ -356,8 +412,8 @@ const featuredProducts = {
   }, []);
 
   /* ── "See what's new" scroll helpers ── */
-  const scrollLeft = () => scrollContainerRef.current?.scrollBy({ left: -320, behavior: "smooth" });
-  const scrollRight = () => scrollContainerRef.current?.scrollBy({ left: 320, behavior: "smooth" });
+  const scrollLeft = () => smoothScrollBy(scrollContainerRef.current, -320);
+  const scrollRight = () => smoothScrollBy(scrollContainerRef.current, 320);
 
   /* ── Carousel helpers ── */
   const maxIdx = carouselProducts.length - visibleCount;
@@ -369,46 +425,47 @@ const featuredProducts = {
 
           {/* HERO SECTION */}
 
-      <div className="relative w-full overflow-hidden h-[640px] md:h-[450px] lg:h-[500px]">
-        {translatedHeroSlides.map((slide, i) => (
+<div className="relative w-full overflow-hidden pt-6 sm:pt-0 min-h-[37rem] sm:min-h-[32rem] md:min-h-[30rem] lg:min-h-[31.25rem]">        {translatedHeroSlides.map((slide, i) => (
           <Link
             key={slide.id}
             to={slide.link}
-            className={`absolute inset-0 flex items-center transition-opacity duration-700 ${slide.bg} ${i === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+             className={`absolute inset-0 flex items-center transition-opacity duration-700 ${slide.bg} ${i === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
               }`}
           >
-            <div className="max-w-[1100px] mx-auto w-full px-6 md:px-10 flex flex-col md:flex-row items-center justify-between h-full pt-10 md:pt-0 gap-6">
+            <div className="max-w-[1100px] mx-auto w-full px-5 sm:px-6 md:px-10 flex flex-col md:flex-row items-center justify-center md:justify-between h-full pt-0 pb-8 sm:pt-7 sm:pb-10 md:py-0 gap-4 sm:gap-5 md:gap-8">
               {/* Left: Content */}
-              <div className="w-full md:flex-1 pr-0 md:pr-8 text-center md:text-left order-2 md:order-1 pb-8 md:pb-0">
-                <p className="text-xs font-semibold tracking-widest text-gray-500 dark:text-gray-400 uppercase mb-1">
+              <div className="w-full md:w-[46%] lg:flex-1 text-center md:text-left order-2 md:order-1 space-y-2 sm:space-y-2">
+                <p className="text-[11px] sm:text-xs font-semibold tracking-widest text-gray-500 dark:text-gray-400 uppercase">
                   {slide.brand}
                 </p>
-                <h1 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-2 leading-tight ${slide.textDark ? "text-gray-900 dark:text-white" : "text-white"}`}>
+                <h1 className={`text-[1.65rem] leading-[1.15] sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold ${slide.textDark ? "text-gray-900 dark:text-white" : "text-white"}`}>
                   {slide.tagline}
                 </h1>
-                <p className={`text-sm md:text-base font-medium mb-1 ${slide.textDark ? "text-gray-700 dark:text-gray-300" : "text-white/90"}`}>
+                <p className={`text-sm sm:text-base font-medium ${slide.textDark ? "text-gray-700 dark:text-gray-300" : "text-white/90"}`}>
                   {slide.subtitle}
                 </p>
                 {slide.promo && (
-                  <p className={`text-xs md:text-sm mb-3 max-w-md mx-auto md:mx-0 ${slide.textDark ? "text-gray-600 dark:text-gray-400" : "text-white/80"}`}>
+                  <p className={`text-xs sm:text-sm max-w-[19rem] md:max-w-xs mx-auto md:mx-0 ${slide.textDark ? "text-gray-600 dark:text-gray-400" : "text-white/80"}`}>
                     {slide.promo}
                   </p>
                 )}
                 {slide.note && (
-                  <p className={`text-[10px] md:text-xs mb-3 ${slide.textDark ? "text-gray-500 dark:text-gray-400" : "text-white/70"}`}>
+                  <p className={`text-[10px] sm:text-xs ${slide.textDark ? "text-gray-500 dark:text-gray-400" : "text-white/70"}`}>
                     {slide.note}
                   </p>
                 )}
-                <button className="bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-xs md:text-sm font-semibold px-5 py-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-200 transition-all">
-                  {slide.cta}
-                </button>
+                <div className="pt-2 sm:pt-2.5">
+                  <button className="bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-xs sm:text-sm font-semibold px-6 py-2.5 sm:px-7 sm:py-3 rounded-full shadow-sm hover:shadow-md hover:bg-gray-700 dark:hover:bg-gray-200 active:scale-95 transition-all">
+                    {slide.cta}
+                  </button>
+                </div>
               </div>
               {/* Right: Image */}
-              <div className="w-full md:flex-1 flex justify-center items-center order-1 md:order-2 mt-8 md:mt-0">
+              <div className="w-full md:w-[54%] lg:flex-1 flex justify-center items-center order-1 md:order-2">
                 <img
                   src={slide.image}
                   alt={slide.brand}
-                  className="max-h-[220px] md:max-h-[350px] lg:max-h-[420px] w-auto object-contain"
+                  className="max-h-[290px] sm:max-h-[300px] md:max-h-[360px] lg:max-h-[420px] w-auto object-contain"
                 />
               </div>
             </div>
@@ -416,7 +473,7 @@ const featuredProducts = {
         ))}
 
         {/* Indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        <div className="absolute  bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-90 flex gap-2">
           {heroSlides.map((_, i) => (
             <button
               key={i}
@@ -435,19 +492,23 @@ const featuredProducts = {
 
 {/* OFFER BANNER */}
 
-      <div className="bg-[#f5f5f7] dark:bg-zinc-900 border-t border-b border-gray-200 dark:border-zinc-800 py-2 text-center text-[11px] text-gray-500 dark:text-gray-400 px-4">
+      <div className="bg-[#f5f5f7] dark:bg-zinc-900 border-t border-b border-gray-200 dark:border-zinc-800 py-1.5 sm:py-2 text-center text-[10px] sm:text-[11px] text-gray-500 dark:text-gray-400 px-4">
         {t('home.offer_banner')}
       </div>
 
           {/* VIEW ALL APPLE PRODUCTS */}
+          {/* FIX: grid version yalnız lg (≥1024px) ekranlarda göstərilir.
+              ipad / tablet (md range, 768-1024px) və mobil ekranlarda isə
+              saga-sola scroll butonlu (arrow) versiya işləyir ki, 7 kateqoriya
+              bir-birinin içinə girib overlap olmasın. */}
 
-      <section className="max-w-[1200px] mx-auto px-6 pt-12 pb-8">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 ">
+      <section className="max-w-[1200px] mx-auto px-5 sm:px-6 md:px-6 pt-8 sm:pt-10 md:pt-12 pb-6 sm:pb-8">
+        <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 ">
           {t('home.view_all_apple')}
         </h2>
 
        
-        <div className="hidden md:grid grid-cols-7 gap-6 justify-items-center">
+        <div className="hidden lg:grid grid-cols-7 gap-6 justify-items-center">
           {categories.map(cat => (
             <Link
               key={cat.id}
@@ -467,33 +528,36 @@ const featuredProducts = {
           ))}
         </div>
 
-        <div className="md:hidden relative">
-          <button
-            onClick={categoryScrollLeft}
-            className="absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center"
-            aria-label="Scroll left"
-          >
-            <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+        <div className="lg:hidden relative">
+          {catArrows.left && (
+            <button
+              onClick={categoryScrollLeft}
+              className="absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center cursor-pointer"
+              aria-label="Scroll left"
+            >
+              <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
 
           <div
             ref={categoryScrollRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth px-8"
+            onScroll={updateCatArrows}
+            className="flex gap-4 overflow-x-auto scrollbar-hide pl-0 pr-8 md:px-8"
             style={{ scrollbarWidth: "none" }}
           >
             {categories.map(cat => (
               <Link
                 key={cat.id}
                 to={cat.link}
-                className="flex flex-col items-center flex-none w-20 group"
+                className="flex flex-col items-center flex-none w-24 sm:w-28 group"
               >
-                <div className="w-20 h-20 bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-2xl flex items-center justify-center mb-3">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-2xl flex items-center justify-center mb-3 ">
                   <img
                     src={cat.image}
                     alt={cat.name}
-                    className="w-12 h-12 object-contain group-hover:scale-105 transition"
+                    className="w-14 h-14 sm:w-20 sm:h-20 object-contain group-hover:scale-105 transition"
                   />
                 </div>
                 <p className="font-semibold text-sm text-gray-900 dark:text-gray-200 text-center">{cat.name}</p>
@@ -502,36 +566,41 @@ const featuredProducts = {
             ))}
           </div>
 
-          <button
-            onClick={categoryScrollRight}
-            className="absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center"
-            aria-label="Scroll right"
-          >
-            <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+          {catArrows.right && (
+            <button
+              onClick={categoryScrollRight}
+              className="absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center cursor-pointer"
+              aria-label="Scroll right"
+            >
+              <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
         </div>      </section>
 
           {/* SEE WHAT'S NEW */}
 
-      <section className="max-w-[1200px] mx-auto px-6 py-10">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
+      <section className="max-w-[1200px] mx-auto px-5 sm:px-6 md:px-6 py-8 sm:py-10">
+        <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
           {t('home.see_whats_new')}
         </h2>
         <div className="relative">
           {/* Scroll left btn */}
-          <button
-            onClick={scrollLeft}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center hover:shadow-lg transition-all"
-            aria-label="Scroll left"
-          >
-            <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-          </button>
+          {newArrows.left && (
+            <button
+              onClick={scrollLeft}
+              className="absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center hover:shadow-lg transition-all"
+              aria-label="Scroll left"
+            >
+              <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+          )}
           {/* Scroll container */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
+            onScroll={updateNewArrows}
+            className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
             style={{ scrollbarWidth: "none" }}
           >
             {newProducts.map(product => (
@@ -567,13 +636,15 @@ const featuredProducts = {
             ))}
           </div>
           {/* Scroll right btn */}
-          <button
-            onClick={scrollRight}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center hover:shadow-lg transition-all"
-            aria-label="Scroll right"
-          >
-            <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-          </button>
+          {newArrows.right && (
+            <button
+              onClick={scrollRight}
+              className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center hover:shadow-lg transition-all"
+              aria-label="Scroll right"
+            >
+              <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          )}
         </div>
       </section>
 
@@ -596,12 +667,7 @@ const featuredProducts = {
             <div className="w-full md:w-1/2 flex flex-col justify-center px-6 py-8 md:px-10">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{block.title}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-5 max-w-xs">{block.desc}</p>
-              <Link
-                to={block.ctaLink}
-                className="self-start border border-gray-900 dark:border-white text-gray-900 dark:text-white text-xs font-semibold px-5 py-2 rounded-full hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-all"
-              >
-                {block.cta}
-              </Link>
+             
             </div>
           </div>
         ))}
@@ -692,14 +758,15 @@ const featuredProducts = {
         </h2>
         <div className="relative flex items-center">
           {/* Prev */}
-          <button
-            onClick={carouselPrev}
-            disabled={carouselIdx === 0}
-            className="flex-none w-10 h-10 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow rounded-full flex items-center justify-center mr-3 hover:shadow-md transition-all disabled:opacity-30 text-gray-700 dark:text-gray-300"
-            aria-label="Previous"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-          </button>
+          {carouselIdx > 0 && (
+            <button
+              onClick={carouselPrev}
+              className="flex-none w-10 h-10 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow rounded-full flex items-center justify-center mr-3 hover:shadow-md transition-all text-gray-700 dark:text-gray-300"
+              aria-label="Previous"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+          )}
 
           {/* Cards */}
           <div className="flex-1 overflow-hidden">
@@ -731,26 +798,32 @@ const featuredProducts = {
           </div>
 
           {/* Next */}
-          <button
-            onClick={carouselNext}
-            disabled={carouselIdx >= maxIdx}
-            className="flex-none w-10 h-10 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow rounded-full flex items-center justify-center ml-3 hover:shadow-md transition-all disabled:opacity-30 text-gray-700 dark:text-gray-300"
-            aria-label="Next"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-          </button>
+          {carouselIdx < maxIdx && (
+            <button
+              onClick={carouselNext}
+              className="flex-none w-10 h-10 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow rounded-full flex items-center justify-center ml-3 hover:shadow-md transition-all text-gray-700 dark:text-gray-300"
+              aria-label="Next"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          )}
         </div>
 
         {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-6">
-          {carouselProducts.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCarouselIdx(Math.min(i, maxIdx))}
-              className={`rounded-full transition-all duration-300 ${i === carouselIdx ? "bg-gray-800 dark:bg-white w-5 h-2" : "bg-gray-300 dark:bg-zinc-700 w-2 h-2"}`}
-            />
-          ))}
-        </div>
+       <div className="flex justify-center gap-2 mt-6">
+  {Array.from({ length: 2 }).map((_, i) => (
+    <button
+      key={i}
+      onClick={() => setCarouselIdx(i)}
+      className={`rounded-full transition-all duration-300 ${
+        i === carouselIdx
+          ? "bg-gray-800 dark:bg-white w-5 h-2"
+          : "bg-gray-300 dark:bg-zinc-700 w-2 h-2"
+      }`}
+    />
+  ))}
+</div>
+
       </section>
 
     </div>

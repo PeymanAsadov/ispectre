@@ -12,10 +12,10 @@ import {
 import { models } from "../components/watch/SupportComponents/data";
 
 function Support() {
-  const [device, setDevice] = useState("iphone");
+  const [device, setDevice] = useState("iPhone");
 
   const [selectedModel, setSelectedModel] = useState(
-    models.iphone[0]
+    models.iPhone[0]
   );
 
   const goToRepairForm = () => {

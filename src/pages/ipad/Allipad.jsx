@@ -3,8 +3,9 @@ import ipads from "../../data/ipad";
 import { useTranslation } from "react-i18next";
 
 function AllIpads() {
+  const { t } = useTranslation();
   return (
-    <IPadSiralama title="All iPads" ipads={ipads} />
+    <IPadSiralama title={t('nav.all_ipads')} ipads={ipads} />
   );
 }
 

@@ -8,29 +8,29 @@ const DisplayProductCard = memo(({ item }) => {
   return (
     <Link
       to={`/display/${item.id}?color=${encodeURIComponent(item.color)}`}
-      className="group flex flex-col justify-between bg-white dark:bg-[#18181B] p-6 rounded-[32px] border border-gray-100 dark:border-[#3F3F46] hover:shadow-xl hover:border-gray-200 dark:hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1"
+      className="group flex flex-col justify-between bg-white dark:bg-[#18181B] p-4 md:p-6 rounded-[24px] md:rounded-[32px] border border-gray-100 dark:border-[#3F3F46] hover:shadow-xl hover:border-gray-200 dark:hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1"
     >
       <div>
-        <div className="w-full h-[220px] flex items-center justify-center overflow-hidden">
+        <div className="w-full h-[160px] md:h-[220px] flex justify-center items-center mb-3 md:mb-4">
           <img
             src={item.img}
             alt={`${item.model} ${item.color}`}
             loading="lazy"
             decoding="async"
-            className="max-h-[190px] object-contain group-hover:scale-105 transition-transform duration-300"
+            className="max-h-[140px] md:max-h-[190px] object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </div>
-        <h3 className="mt-4 text-center font-semibold text-base tracking-tight text-gray-900 dark:text-[#F5F5F5] line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors">
+        <p className="font-semibold text-center text-sm md:text-base text-gray-900 dark:text-[#F5F5F5] line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors">
           {item.model}
-        </h3>
-        <p className="text-center text-xs text-gray-500 dark:text-[#A1A1AA] mt-1">{item.color}</p>
+        </p>
+        <p className="text-center text-xs text-gray-400 dark:text-[#A1A1AA] mt-1">{item.color}</p>
       </div>
 
-      <div className="mt-5 border-t border-gray-100 dark:border-[#3F3F46] pt-4 text-center">
-        <p className="font-bold text-lg text-gray-900 dark:text-[#F5F5F5]">
+      <div className="mt-3 md:mt-5 pt-3 md:pt-4 border-t border-gray-100 dark:border-[#3F3F46] text-center">
+        <p className="font-bold text-base md:text-lg text-gray-900 dark:text-[#F5F5F5]">
           {t("product.from_price_suffix", { price: item.price.toLocaleString() })}
         </p>
-        <p className="text-xs text-gray-400 dark:text-[#A1A1AA] mt-1">
+        <p className="text-xs text-gray-400 dark:text-[#A1A1AA]">
           {t("product.monthly_price", { price: item.monthly })}
         </p>
         <button
@@ -46,7 +46,7 @@ const DisplayProductCard = memo(({ item }) => {
               img: item.img,
             });
           }}
-          className="w-full mt-4 bg-slate-950 text-white hover:bg-slate-900 active:bg-slate-950 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600 dark:active:bg-slate-800 py-3 rounded-xl transition duration-200"
+          className="w-full mt-3 bg-slate-950 text-white hover:bg-slate-900 active:bg-slate-950 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600 dark:active:bg-slate-800 rounded-full py-2.5 text-sm transition"
         >
           {t("cart.add_to_cart")}
         </button>
@@ -107,7 +107,7 @@ function DisplayCard({
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
         {cards.map((item) => (
           <DisplayProductCard key={`${item.id}-${item.color}`} item={item} />
         ))}

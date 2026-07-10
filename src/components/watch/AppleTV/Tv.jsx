@@ -8,29 +8,29 @@ const TvProductCard = memo(({ item }) => {
   return (
     <Link
       to={`/tv/${item.id}?color=${encodeURIComponent(item.color)}`}
-      className="group flex flex-col justify-between bg-white dark:bg-[#1c1c1e] p-6 rounded-[32px] border border-gray-100 dark:border-gray-700/50 hover:shadow-xl hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 hover:-translate-y-1"
+      className="group flex flex-col justify-between bg-white dark:bg-[#1c1c1e] p-4 md:p-6 rounded-[24px] md:rounded-[32px] border border-gray-100 dark:border-gray-700/50 hover:shadow-xl hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 hover:-translate-y-1"
     >
       <div>
-        <div className="w-full h-[220px] flex items-center justify-center overflow-hidden">
+        <div className="w-full h-[160px] md:h-[220px] flex justify-center items-center mb-3 md:mb-4">
           <img
             src={item.img}
             alt={`${item.model} ${item.color}`}
             loading="lazy"
             decoding="async"
-            className="max-h-[190px] object-contain group-hover:scale-105 transition-transform duration-300"
+            className="max-h-[140px] md:max-h-[190px] object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </div>
-        <h3 className="mt-4 text-center font-semibold text-base tracking-tight text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+        <p className="font-semibold text-center text-sm md:text-base text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {item.model}
-        </h3>
-        <p className="text-center text-xs text-gray-500 dark:text-gray-400 mt-1">{item.color}</p>
+        </p>
+        <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-1">{item.color}</p>
       </div>
 
-      <div className="mt-5 border-t border-gray-100 dark:border-gray-700/50 pt-4 text-center">
-        <p className="font-bold text-lg text-gray-900 dark:text-gray-100">
+      <div className="mt-3 md:mt-5 pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700/50 text-center">
+        <p className="font-bold text-base md:text-lg text-gray-900 dark:text-gray-100">
           {t("product.from_price_suffix", { price: item.price.toLocaleString() })}
         </p>
-        <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
+        <p className="text-xs text-gray-400 dark:text-gray-500">
           {t("product.monthly_price", { price: item.monthly })}
         </p>
         <button
@@ -46,7 +46,7 @@ const TvProductCard = memo(({ item }) => {
               img: item.img,
             });
           }}
-          className="w-full mt-4 bg-black text-white rounded-full py-3 hover:bg-gray-800 dark:bg-slate-700 dark:hover:bg-slate-600 transition"
+          className="w-full mt-3 bg-black text-white rounded-full py-2.5 text-sm hover:bg-gray-800 dark:bg-slate-700 dark:hover:bg-slate-600 transition"
         >
           {t("cart.add_to_cart")}
         </button>
@@ -107,7 +107,7 @@ function TvCard({
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
         {cards.map((item) => (
           <TvProductCard key={`${item.id}-${item.color}`} item={item} />
         ))}

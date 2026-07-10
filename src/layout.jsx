@@ -8,12 +8,13 @@ import Nav from "./nav/nav";
 
 function Layout() {
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0B0B0D] text-[#1d1d1f] dark:text-[#F5F5F5] transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#0B0B0D] text-[#1d1d1f] dark:text-[#F5F5F5] transition-colors duration-300 pt-28">
       <div id="top"></div>
 
       <Nav />
 
-      <main className="pt-[115px]">
+      {/* Remove the inline style completely */}
+      <main>
         <Outlet />
       </main>
 

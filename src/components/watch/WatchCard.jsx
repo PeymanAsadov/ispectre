@@ -8,29 +8,35 @@ const WatchProductCard = memo(({ item }) => {
   return (
     <Link
       to={`/watch/${item.id}?color=${encodeURIComponent(item.color)}`}
-      className="group flex flex-col justify-between bg-white dark:bg-[#18181B] p-6 rounded-[32px] border border-gray-100 dark:border-[#3F3F46] hover:shadow-xl hover:border-gray-200 dark:hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1"
+      // p-6-dan p-4-ə salındı, beləcə kartın kənarlarındakı boşluq azaldı
+      className="group flex flex-col justify-between bg-white dark:bg-[#18181B] p-4 rounded-[28px] border border-gray-100 dark:border-[#3F3F46] hover:shadow-xl hover:border-gray-200 dark:hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1"
     >
       <div>
-        <div className="w-full h-[220px] flex items-center justify-center overflow-hidden">
+        {/* Şəkil konteynerinin hündürlüyü 220px-dən 160px-ə endirildi */}
+        <div className="w-full h-[160px] flex items-center justify-center overflow-hidden">
           <img
             src={item.img}
             alt={`${item.model} ${item.color}`}
             loading="lazy"
             decoding="async"
-            className="max-h-[190px] object-contain group-hover:scale-105 transition-transform duration-300"
+            // Şəklin özünün max hündürlüyü 130px edildi ki, kartı sıxmasın
+            className="max-h-[130px] object-contain group-hover:scale-105 transition-transform duration-300"
           />
         </div>
-        <h3 className="mt-4 text-center font-semibold text-base tracking-tight text-gray-900 dark:text-[#F5F5F5] line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors">
+        {/* mt-4-dən mt-2-yə salındı və text ölçüsü text-sm edildi */}
+        <h3 className="mt-2 text-center font-semibold text-sm tracking-tight text-gray-900 dark:text-[#F5F5F5] line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors">
           {item.model}
         </h3>
-        <p className="text-center text-xs text-gray-500 dark:text-[#A1A1AA] mt-1">{item.color}</p>
+        <p className="text-center text-[11px] text-gray-500 dark:text-[#A1A1AA] mt-0.5">{item.color}</p>
       </div>
 
-      <div className="mt-5 border-t border-gray-100 dark:border-[#3F3F46] pt-4 text-center">
-        <p className="font-bold text-lg text-gray-900 dark:text-[#F5F5F5]">
+      {/* mt-5-dən mt-3-ə, pt-4-dən pt-2-yə salındı */}
+      <div className="mt-3 border-t border-gray-100 dark:border-[#3F3F46] pt-2 text-center">
+        {/* text-lg-dən text-base-ə salındı */}
+        <p className="font-bold text-base text-gray-900 dark:text-[#F5F5F5]">
           {t("product.from_price_suffix", { price: item.price.toLocaleString() })}
         </p>
-        <p className="text-xs text-gray-400 dark:text-[#A1A1AA] mt-1">
+        <p className="text-[11px] text-gray-400 dark:text-[#A1A1AA] mt-0.5">
           {t("product.monthly_price", { price: item.monthly })}
         </p>
         <button
@@ -46,7 +52,8 @@ const WatchProductCard = memo(({ item }) => {
               img: item.img,
             });
           }}
-          className="w-full mt-4 bg-black text-white hover:bg-gray-800 dark:bg-slate-700 dark:hover:bg-slate-600 py-3 rounded-xl transition duration-200"
+          // mt-4-dən mt-2-yə, py-3-dən py-2-yə salınaraq düymə ensizləşdirildi
+          className="w-full mt-2 bg-black text-white hover:bg-gray-800 dark:bg-slate-700 dark:hover:bg-slate-600 py-2.5 text-xs rounded-xl transition duration-200"
         >
           {t("cart.add_to_cart")}
         </button>
@@ -112,7 +119,7 @@ function WatchCard({
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
         {cards.map((item) => (
           <WatchProductCard key={`${item.id}-${item.color}`} item={item} />
         ))}

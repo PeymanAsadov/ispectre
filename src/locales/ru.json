@@ -39,6 +39,49 @@
     "shipping_tax_info": "Сбор и налоги рассчитываются при оформлении",
     "checkout": "Оформить заказ"
   },
+  "auth": {
+    "login_title": "Вход",
+    "register_title": "Регистрация",
+    "email_tab": "Email",
+    "phone_tab": "Телефон",
+    "email_placeholder": "email@example.com",
+    "password_placeholder": "Пароль",
+    "logging_in": "Вход...",
+    "login_button": "Войти",
+    "no_account": "Нет аккаунта?",
+    "go_to_register": "Зарегистрироваться",
+    "name_placeholder": "Имя",
+    "surname_placeholder": "Фамилия",
+    "creating_account": "Создание аккаунта...",
+    "create_account_button": "Создать аккаунт",
+    "have_account": "Уже есть аккаунт?",
+    "go_to_login": "Войти",
+    "register_success": "Регистрация успешно завершена.",
+    "errors": {
+      "invalid_credentials": "Неверный email/телефон или пароль.",
+      "name_surname_empty": "Имя и фамилия не могут быть пустыми.",
+      "email_invalid": "Неверный формат email.",
+      "phone_incomplete": "Введите номер телефона полностью: {{placeholder}}",
+      "password_min_length": "Пароль должен содержать минимум 8 символов.",
+      "account_exists": "Аккаунт с таким email или телефоном уже существует."
+    }
+  },
+  "filters": {
+    "price": "Цена",
+    "sort": "Сортировка",
+    "select": "Выбрать",
+    "title": "Фильтры",
+    "apply": "Применить фильтры",
+    "default": "По умолчанию",
+    "cheap_to_expensive": "Дешевые → Дорогие",
+    "expensive_to_cheap": "Дорогие → Дешевые",
+    "model": "Модель",
+    "color": "Цвет",
+    "storage": "Память",
+    "size": "Размер",
+    "glass_type": "Тип стекла",
+    "no_results": "По выбранным фильтрам товары не найдены"
+  },
   "checkout": {
     "title": "Оформление заказа",
     "total": "Итого",
@@ -121,20 +164,6 @@
       "privacy_policy": "Политика конфиденциальности",
       "gift_regulations": "Правила подарочных сертификатов"
     }
-  },
-  "filters": {
-    "price": "Цена",
-    "sort": "Сортировка",
-    "select": "Выбрать",
-    "default": "По умолчанию",
-    "cheap_to_expensive": "Дешевые → Дорогие",
-    "expensive_to_cheap": "Дорогие → Дешевые",
-    "model": "Модель",
-    "color": "Цвет",
-    "storage": "Память",
-    "size": "Размер",
-    "glass_type": "Тип стекла",
-    "no_results": "По выбранным фильтрам товары не найдены"
   },
   "account": {
     "title": "Мой аккаунт",
@@ -249,12 +278,12 @@
         "title": "iPhone 17 Pro, 256 ГБ, Cosmic Orange"
       },
       {
-        "sub": "6.1 ДЮЙМОВ · 128 ГБ · РОЗОВЫЙ",
-        "title": "iPhone 15, 128 ГБ, Розовый"
+        "sub": "6.1 ДЮЙМОВ · 256 ГБ · Cерый",
+        "title": "iPhone 15 Pro, 256 ГБ, Ceрый"
       },
       {
-        "sub": "6.7 ДЮЙМОВ · 128 ГБ · БИРЮЗОВЫЙ",
-        "title": "iPhone 16, 128 ГБ, Бирюзовый"
+        "sub": "6.7 ДЮЙМОВ · 512 ГБ · чёрный ",
+        "title": "iPhone 16 Pro Max, 512 ГБ, чёрный"
       },
       {
         "sub": "13.6 ДЮЙМОВ · 256 ГБ · ТЕМНАЯ НОЧЬ",
@@ -279,7 +308,8 @@
       "subtitle": "Ваше устройство в надёжных руках лицензированных специалистов Apple Надёжный ремонт экрана, аккумулятора, водяного повреждения и многого другого",
       "cta_primary": "Оставить заявку",
       "cta_secondary": "Узнать подробнее",
-      "image_alt": "Устройства Apple"
+      "image_alt": "Устройства Apple",
+      "iSpectre Service Center": "Сервисный центр iSpectre"
     },
     "device_selector": {
       "badge": "Выберите устройство",
@@ -326,7 +356,16 @@
       "problem_placeholder": "Краткое описание проблемы",
       "submit": "Отправить",
       "submitting": "Отправляется...",
-      "success_message": "Ваша заявка успешно принята! Мы свяжемся с вами в ближайшее время"
+      "success_message": "Ваша заявка успешно принята! Мы свяжемся с вами в ближайшее время",
+      "Title": "Заявка на ремонт",
+      "Subtitle": "Выбранное устройство",
+      "Name": "Имя и фамилия",
+      "Phone": "Номер телефона",
+      "Description": "Опишите проблему",
+      "Images": "Изображения",
+      "Submit": "Отправить",
+      "Success Message": "Ваша заявка успешно отправлена",
+      "Selected Device": "Выбранное устройство"
     },
     "faq_section": {
       "badge": "Часто задаваемые вопросы",

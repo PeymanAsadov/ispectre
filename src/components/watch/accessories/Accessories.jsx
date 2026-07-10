@@ -63,34 +63,34 @@ function Accessories({
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-2 animate-fade-in">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
         {processedCards.map((item) => {
           const uniqueKey = `${item.id}-${item.color}`;
           return (
             <Link
               key={uniqueKey}
               to={`/accessories/${item.id}?color=${encodeURIComponent(item.color)}`}
-              className="group flex flex-col justify-between bg-white dark:bg-[#1c1c1e] p-6 rounded-[32px] border border-gray-100 dark:border-gray-700/50 hover:shadow-xl hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-1"
+              className="group flex flex-col justify-between bg-white dark:bg-[#1c1c1e] p-4 md:p-6 rounded-[24px] md:rounded-[32px] border border-gray-100 dark:border-gray-700/50 hover:shadow-xl hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 hover:-translate-y-1"
             >
               <div>
-                <div className="w-full h-[220px] flex items-center justify-center mb-4 bg-transparent overflow-hidden">
+                <div className="w-full h-[160px] md:h-[220px] flex justify-center items-center mb-3 md:mb-4">
                   <img
                     src={item.img}
                     alt={`${item.model} ${item.color}`}
                     loading="lazy"
-                    className="max-h-[190px] object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="max-h-[140px] md:max-h-[190px] object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <p className="font-semibold text-base mt-2 px-1 text-center text-gray-900 dark:text-gray-100 tracking-tight line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <p className="font-semibold text-center text-sm md:text-base text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {item.model} ({item.color})
                 </p>
               </div>
 
-              <div className="mt-5 w-full text-center border-t border-gray-50 dark:border-gray-700/50 pt-4">
-                <p className="font-bold text-lg text-gray-900 dark:text-gray-100">
+              <div className="mt-3 md:mt-5 pt-3 md:pt-4 border-t border-gray-50 dark:border-gray-700/50 text-center">
+                <p className="font-bold text-base md:text-lg text-gray-900 dark:text-gray-100">
                   {t("product.from_price_suffix", { price: item.price.toLocaleString() })}
                 </p>
-                <p className="text-gray-400 dark:text-gray-500 text-xs mt-0.5">
+                <p className="text-gray-400 dark:text-gray-500 text-xs">
                   {t("product.monthly_price", { price: item.monthly })}
                 </p>
                 <button
@@ -106,7 +106,7 @@ function Accessories({
                       img: item.img,
                     });
                   }}
-                  className="w-full mt-4 bg-slate-950 text-white rounded-full py-3 hover:bg-gray-800 dark:bg-slate-700 dark:hover:bg-slate-600 transition"
+                  className="w-full mt-3 bg-slate-950 text-white rounded-full py-2.5 text-sm hover:bg-gray-800 dark:bg-slate-700 dark:hover:bg-slate-600 transition"
                 >
                   {t("cart.add_to_cart")}
                 </button>

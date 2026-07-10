@@ -190,13 +190,13 @@ function KeyboardSiralama({ title, keyboards = [] }) {
       )}
 
       <div className="max-w-7xl mx-auto px-6 py-10">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col items-start gap-4 mb-6">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">{title}</h1>
           <button
             onClick={() => setFilterOpen(true)}
-            className="lg:hidden flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white dark:bg-[#1c1c1e] border border-gray-200 dark:border-gray-700 shadow-sm text-sm font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+            className="lg:hidden flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-[#1c1c1e] border border-gray-200 dark:border-gray-700 shadow-sm text-sm font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h18M7 8h10M10 12h4" />
             </svg>
             {t('filters.title') || 'Filters'}

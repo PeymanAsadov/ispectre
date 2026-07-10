@@ -8,7 +8,7 @@
     "tv_home": "TV & Home",
     "vision_pro": "Vision Pro",
     "display": "Display",
-    "support": "Support",
+    "support": "iSupport",
     "accessories": "Accessories",
     "view_all_mac": "View all Mac",
     "all_ipads": "All iPads",
@@ -20,14 +20,14 @@
     "view_all_displays": "View All Displays",
     "view_all_accessories": "View All Accessories",
     "view_all": "View all {{category}}",
-    "logout_success": "You have logged out",
-    "login": "Log in",
+    "logout_success": "You have been logged out",
+    "login": "Log In",
     "home": "Home",
-    "search_placeholder": "Search products...",
+    "search_placeholder": "Search...",
     "suggestions": "Suggestions",
     "products": "Products",
     "no_products_found": "No products found",
-    "from_price": "From {{price}} ₼"
+    "from_price": "Price: {{price}} ₼"
   },
   "cart": {
     "title": "Cart",
@@ -39,61 +39,104 @@
     "shipping_tax_info": "Taxes and shipping calculated at checkout",
     "checkout": "Check out"
   },
+  "filters": {
+    "price": "Price",
+    "sort": "Sort",
+    "select": "Select",
+    "title": "Filters",
+    "apply": "Apply Filters",
+    "default": "Default",
+    "cheap_to_expensive": "Low to High",
+    "expensive_to_cheap": "High to Low",
+    "model": "Model",
+    "color": "Color",
+    "storage": "Storage",
+    "size": "Size",
+    "glass_type": "Glass type",
+    "no_results": "No products found matching the selected filters"
+  },
   "checkout": {
-    "title": "Complete order",
+    "title": "Complete your order",
     "total": "Total",
-    "first_name": "First Name",
-    "last_name": "Last Name",
-    "shipping_address": "Shipping Address",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "shipping_address": "Shipping address",
     "address": "Address",
     "city": "City",
-    "postal_code": "Postal Code",
-    "payment_info": "Payment Details",
+    "postal_code": "Postal code",
+    "payment_info": "Payment information",
     "expiry_placeholder": "MM/YY",
     "confirm_order": "Confirm order — {{total}} ₼",
     "errors": {
       "name_surname_empty": "First and last name cannot be empty",
-      "address_empty": "Please enter the address",
-      "postal_code_empty": "Please enter the postal code",
-      "card_incomplete": "Please enter the complete card number",
+      "address_empty": "Please enter your address",
+      "postal_code_empty": "Please enter your postal code",
+      "card_incomplete": "Please enter the full card number",
       "expiry_invalid": "Please enter a valid expiry date (MM/YY)",
-      "cvv_incomplete": "Please enter the CVV code"
+      "cvv_incomplete": "Please enter your CVV code"
+    }
+  },
+  "auth": {
+    "login_title": "Log In",
+    "register_title": "Sign Up",
+    "email_tab": "Email",
+    "phone_tab": "Phone",
+    "email_placeholder": "email@example.com",
+    "password_placeholder": "Password",
+    "logging_in": "Logging in...",
+    "login_button": "Log In",
+    "no_account": "Don't have an account?",
+    "go_to_register": "Sign up",
+    "name_placeholder": "First name",
+    "surname_placeholder": "Last name",
+    "creating_account": "Creating account...",
+    "create_account_button": "Create account",
+    "have_account": "Already have an account?",
+    "go_to_login": "Log in",
+    "register_success": "Registration completed successfully.",
+    "errors": {
+      "invalid_credentials": "Email/phone or password is incorrect.",
+      "name_surname_empty": "First and last name cannot be empty.",
+      "email_invalid": "Email format is invalid.",
+      "phone_incomplete": "Please enter the full phone number: {{placeholder}}",
+      "password_min_length": "Password must be at least 8 characters.",
+      "account_exists": "An account with this email or phone number already exists."
     }
   },
   "product": {
     "loading": "Loading product...",
     "not_found": "Product not found",
-    "deleted_notice": "This product may have been deleted from the admin panel",
+    "deleted_notice": "This product may have been removed from the admin panel",
     "back_to_list": "Back to list",
-    "selected_color": "Selected color :",
+    "selected_color": "Selected color:",
     "storage": "Storage",
     "color": "Color",
     "size": "Size",
-    "tech_specs": "Technical Specifications",
+    "tech_specs": "Technical specifications",
     "payment_cash_card": "Cash / Card payment",
-    "installments_info": "12 months interest-free installments",
-    "monthly_price": "{{price}} ₼/month",
-    "per_month": "/ month",
+    "installments_info": "12-month interest-free installments",
+    "monthly_price": "{{price}} ₼/mo",
+    "per_month": "/ mo",
     "you_may_also_like": "You may also like",
     "from_price_suffix": "From {{price}} ₼"
   },
   "footer": {
     "shop": "Shop",
     "services": "Services",
-    "for_clients": "For Clients",
+    "for_clients": "For customers",
     "information": "Information",
     "apple_premium_partner": "Apple Premium Partner",
-    "description": "iSpectre is your trusted Apple expert in Azerbaijan, recognized with Premium Partner status. Explore the latest Apple devices and accessories at our stores. Enjoy premium service in the unique atmosphere of a globally renowned brand",
+    "description": "iSpectre is your trusted Apple expert in Azerbaijan, recognized with Premium Partner status. Discover the latest Apple devices and accessories in our stores. Enjoy premium service in the unique atmosphere of a world-renowned brand",
     "premium_partner": "Premium Partner",
-    "authorised_service": "Authorised Service Provider",
-    "subscribe": "Subscribe to our Emails",
-    "email_placeholder": "E-mail",
+    "authorised_service": "Authorized Service Center",
+    "subscribe": "Subscribe for updates",
+    "email_placeholder": "Email",
     "i_agree": "I agree to the",
     "processing_data": "processing of personal data",
-    "and_understand": "and I understand the",
-    "terms_conditions": "Terms and Conditions of Use",
+    "and_understand": "and I accept the",
+    "terms_conditions": "Terms of Use",
     "follow_us": "Follow us",
-    "payment_methods": "Payment Methods",
+    "payment_methods": "Payment methods",
     "copyright": "2026 iSpectre Azerbaijan. All rights reserved",
     "links": {
       "mac": "Mac",
@@ -110,31 +153,17 @@
       "delivery_payment": "Delivery & Payment",
       "isupport": "iSupport",
       "blog": "Blog",
-      "press_releases": "Press Releases",
-      "educational_offer": "Educational offer",
-      "apple_business": "Apple and Business",
+      "press_releases": "Press releases",
+      "educational_offer": "Education offer",
+      "apple_business": "Apple & Business",
       "loyalty_program": "Loyalty Program",
       "about_us": "About us",
-      "find_store": "Find a Store",
+      "find_store": "Find a store",
       "contacts": "Contacts",
-      "careers": "Career Opportunities",
+      "careers": "Careers",
       "privacy_policy": "Privacy policy",
-      "gift_regulations": "Regulations on Gift Certificates"
+      "gift_regulations": "Gift card terms"
     }
-  },
-  "filters": {
-    "price": "Price",
-    "sort": "Sort",
-    "select": "Select",
-    "default": "Default",
-    "cheap_to_expensive": "Cheap → Expensive",
-    "expensive_to_cheap": "Expensive → Cheap",
-    "model": "Model",
-    "color": "Color",
-    "storage": "Storage",
-    "size": "Size",
-    "glass_type": "Glass type",
-    "no_results": "No products found matching the selected filters"
   },
   "account": {
     "title": "My Account",
@@ -143,86 +172,86 @@
     "edit": "Edit",
     "save": "Save",
     "logout": "Log out",
-    "first_name": "First Name",
-    "last_name": "Last Name",
+    "first_name": "First name",
+    "last_name": "Last name",
     "email": "Email",
     "phone": "Phone",
-    "orders": "My Orders",
+    "orders": "My orders",
     "no_orders_title": "No orders yet",
-    "no_orders_subtitle": "Orders will appear here after checkout",
+    "no_orders_subtitle": "Your orders will appear here once completed",
     "order_number": "Order #{{id}}",
-    "qty_suffix": "pcs.",
+    "qty_suffix": "pcs",
     "card_label": "Card",
     "errors": {
       "name_empty": "First name cannot be empty",
       "surname_empty": "Last name cannot be empty",
-      "email_invalid": "Invalid email address",
-      "phone_incomplete": "Please enter a full phone number: {{placeholder}}",
+      "email_invalid": "Email is invalid",
+      "phone_incomplete": "Please enter the full phone number: {{placeholder}}",
       "already_used": "This email or phone is already in use"
     }
   },
   "home": {
     "hero": [
       {
-        "tagline": "Titanium Camera Action",
-        "promo": "Get up to 300 ₼ trade-in credit towards your new iPhone",
+        "tagline": "Titanium Camera Housing",
+        "promo": "Trade in your old iPhone and get up to 300 ₼ off",
         "note": "Available in Cosmic Orange and Desert Titanium",
-        "cta": "Buy Now"
+        "cta": "Buy now"
       },
       {
-        "tagline": "Mind-blowing Power-loaded",
-        "promo": "Built for pro workflows. Experience up to 22 hours of battery life",
+        "tagline": "Insanely Powerful",
+        "promo": "Built for professionals. Up to 22 hours of battery life",
         "note": "Available in Space Black and Silver",
-        "cta": "Buy Now"
+        "cta": "Buy now"
       },
       {
-        "tagline": "Symphony in Blue Sound remastered",
-        "promo": "Get 6 months of Apple Music for free with your new AirPods Max Sky Blue",
+        "tagline": "A Symphony in Blue. Reimagined",
+        "promo": "Get 6 months of Apple Music free with the new AirPods Max Sky Blue",
         "note": "Now with USB-C and Pro-level Active Noise Cancellation",
-        "cta": "Buy Now"
+        "cta": "Buy now"
       },
       {
         "tagline": "Welcome to the era of spatial computing",
-        "promo": "Experience digital content that blends seamlessly with your physical space",
-        "note": "Demo sessions available in-store now",
+        "promo": "Discover how digital content blends with your physical space",
+        "note": "Demo sessions available in our stores",
         "cta": "Learn more"
       },
       {
-        "tagline": "Sunlit Supercharged",
+        "tagline": "Sunshine. Superpowered",
         "promo": "The thinnest MacBook Air ever. With M5",
-        "note": "Now available",
-        "cta": "Explore"
+        "note": "Available now",
+        "cta": "Discover"
       }
     ],
     "promo_blocks": [
       {
         "title": "Trade-In",
-        "desc": "Upgrade your MacBook or iPhone for the best price. Trade In your old device and get a discount",
+        "desc": "Upgrade your MacBook or iPhone at the best price. Trade in your old device and get a discount",
         "cta": "Submit"
       },
       {
         "title": "Loyalty Program",
-        "desc": "Get exclusive benefits — get more bonuses with every purchase. Points can be exchanged for up to 10%",
+        "desc": "Get exclusive benefits — earn more bonuses with every purchase. Points can be redeemed for up to 10% off",
         "cta": "Submit"
       },
       {
         "title": "Blog",
-        "desc": "News, product releases, lifestyle, company stories and innovations",
+        "desc": "News, product releases, lifestyle, company stories and updates",
         "cta": "Submit"
       }
     ],
     "services": [
       {
-        "label": "DELIVERY AND PICKUP",
-        "title": "Order online and get home delivery"
+        "label": "DELIVERY & PICKUP",
+        "title": "Order online and get it delivered to your home"
       },
       {
         "label": "FINANCING",
-        "title": "Get special financing. Pay over time, interest-free"
+        "title": "Special financing. Pay in installments, interest-free"
       },
       {
         "label": "SALE",
-        "title": "Find low everyday prices and buy online for delivery or in-store pick-up"
+        "title": "Find great everyday prices, buy online with delivery or in-store pickup"
       },
       {
         "label": "TRADE-IN",
@@ -235,12 +264,12 @@
         "desc": "Lightning fast. 13-inch display, 512GB"
       },
       {
-        "title": "Headphones APPLE AirPods Max 2",
-        "desc": "Listening. Remastered"
+        "title": "APPLE AirPods Max 2 Headphones",
+        "desc": "Listen. Remastered"
       },
       {
         "title": "iPhone 17 Pro Max",
-        "desc": "Feature stacked. Value packed"
+        "desc": "Packed with features. Great value"
       }
     ],
     "carousel": [
@@ -249,100 +278,110 @@
         "title": "iPhone 17 Pro, 256 GB, Cosmic Orange"
       },
       {
-        "sub": "6.1 IN · 128GB · PINK",
-        "title": "iPhone 15, 128 GB, Pink"
+        "sub": "6.1 IN · 256 GB · GRAY",
+        "title": "iPhone 15 Pro, 256 GB, GRAY"
       },
       {
-        "sub": "6.7 IN · 128GB · TEAL",
-        "title": "iPhone 16, 128 GB, Teal"
+        "sub": "6.7 IN · 512 GB · Black",
+        "title": "iPhone 16 Pro Max, 512 GB, Black"
       },
       {
-        "sub": "13.6 IN · 256GB · MIDNIGHT",
-        "title": "MacBook Air M5"
+        "sub": "13.6 IN · 256GB · Black",
+        "title": "MacBook Pro M5"
       }
     ],
-    "offer_banner": "The offer is valid when paying with a Visa card in instalments and online. Scan/eMoney Prime to apply. All purchases must be made in Apple Pay or Google Pay",
+    "offer_banner": "Offer valid when paying online in installments with a Visa card. To apply, scan for eMoney Prime. All purchases must be made via Apple Pay or Google Pay",
     "view_all_apple": "View all Apple products",
     "see_whats_new": "See what's new",
     "discover_services": "Discover services and more",
     "buy_now": "Buy now",
     "sale": "SALE",
-    "magic_outside": "Magic on the outside, innovation on the inside",
+    "magic_outside": "Magical outside, innovative inside",
     "new_badge": "NEW",
-    "from_price": "From {{price}} ₼ or {{monthly}} ₼/{{months}} months",
+    "from_price": "From {{price}} ₼ or {{monthly}} ₼/{{months}} mo",
     "from_category_price": "From {{price}}"
   },
   "support": {
     "hero": {
       "badge": "Professional Technical Support",
-      "welcome": "Support for Your Apple Devices",
-      "subtitle": "Your device is in safe hands with licensed Apple technicians. Reliable repairs for screen, battery, water damage, and much more",
-      "cta_primary": "Submit a Request",
-      "cta_secondary": "Learn More",
-      "image_alt": "Apple devices"
+      "welcome": "Support for your Apple devices",
+      "subtitle": "Your device is in safe hands with licensed Apple technicians. Reliable repairs for screen, battery, water damage and more",
+      "cta_primary": "Submit a request",
+      "cta_secondary": "Learn more",
+      "image_alt": "Apple devices",
+      "iSpectre Service Center": "iSpectre Service Center"
     },
     "device_selector": {
-      "badge": "Select a Device",
-      "title": "Which device do you need repaired?",
-      "subtitle": "Choose your brand, tell us the model, and we'll handle the rest",
+      "badge": "Select Device",
+      "title": "Which device would you like to repair?",
+      "subtitle": "Choose your brand, specify the model, and we'll handle the rest",
       "selected_device": "Selected device:",
-      "continue_text": "Confirm your selection and fill in the form for detailed assistance",
-      "cta": "Fill in the Repair Form"
+      "continue_text": "Confirm your selection and fill out the form to get more details",
+      "cta": "Fill out the request form"
     },
     "why_choose": {
       "badge": "Why Us?",
       "title": "Trust the Apple Experts",
-      "subtitle": "Years of experience, certified staff, and genuine parts — all at your service"
+      "subtitle": "Years of experience, certified staff and genuine parts — all at your service"
     },
     "why_choose_items": [
-      { "icon": "shield", "title": "Official Warranty", "desc": "Every repair is accompanied by a warranty certificate" },
+      { "icon": "shield", "title": "Official Warranty", "desc": "Every repair comes with a warranty certificate" },
       { "icon": "wrench", "title": "Modern Equipment", "desc": "We use tools and technology that meet Apple standards" },
       { "icon": "badge", "title": "Certified Staff", "desc": "Our technicians are certified by Apple" },
-      { "icon": "truck", "title": "Fast Turnaround", "desc": "In most cases, we offer same-day service" }
+      { "icon": "truck", "title": "Fast Turnaround", "desc": "In most cases we offer same-day service" }
     ],
     "stats_section": {
       "badge": "Our Achievements",
-      "title": "Numbers Speak",
+      "title": "The Numbers Speak",
       "subtitle": "Behind every statistic is a satisfied customer"
     },
     "stats_items": [
-      { "number": "15,000+", "title": "Repairs Completed" },
-      { "number": "98%", "title": "Customer Satisfaction" },
-      { "number": "8 yrs", "title": "Industry Experience" },
-      { "number": "24/7", "title": "Technical Support" }
+      { "number": "15,000+", "title": "Successful repairs completed" },
+      { "number": "98%", "title": "Customer satisfaction" },
+      { "number": "8 years", "title": "Industry experience" },
+      { "number": "24/7", "title": "Technical support" }
     ],
     "repair_form": {
-      "badge": "Repair Request Form",
-      "title": "Trust Your Device to Us",
-      "subtitle": "Fill out the form and our expert team will contact you as soon as possible",
-      "feature_parts": "Genuine parts only",
+      "badge": "Request Form",
+      "title": "Trust us with your device",
+      "subtitle": "Fill out the form and our expert team will contact you shortly",
+      "feature_parts": "Only genuine parts",
       "feature_engineers": "Certified Apple engineers",
       "feature_warranty": "Warranty on every repair",
-      "submit_title": "Submit Your Request",
+      "submit_title": "Submit Request",
       "selected_device": "Your selected device:",
-      "name_placeholder": "Full Name",
+      "name_placeholder": "Full name",
       "phone_placeholder": "Phone number",
       "email_placeholder": "Email address",
       "problem_placeholder": "Brief description of the issue",
-      "submit": "Send",
-      "submitting": "Sending...",
-      "success_message": "Your request has been successfully received! We will contact you shortly"
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "success_message": "Your request has been received! We'll contact you soon",
+      "Title": "Repair Request",
+      "Subtitle": "Selected Device",
+      "Name": "Full Name",
+      "Phone": "Phone Number",
+      "Description": "Describe the issue",
+      "Images": "Images",
+      "Submit": "Submit",
+      "Success Message": "Your request has been submitted successfully",
+      "Selected Device": "Selected Device"
     },
     "faq_section": {
-      "badge": "FAQ",
-      "title": "Frequently Asked Questions",
+      "badge": "Frequently Asked Questions",
+      "title": "Most Common Questions",
       "subtitle": "Find answers to the most common questions right here"
     },
     "faqs": [
-      { "title": "How long does a repair take?", "answer": "Most repairs are completed within 1-2 business days. Complex issues may require more time" },
-      { "title": "What payment methods do you accept?", "answer": "We accept cash, bank card, online payments, and installment plans" },
-      { "title": "Do you use genuine parts?", "answer": "Yes, we only use Apple-approved genuine spare parts" },
-      { "title": "What are your warranty terms?", "answer": "All repairs come with a 3-6 month warranty. If any issue arises during the warranty period, we fix it for free" },
-      { "title": "Do you repair water-damaged devices?", "answer": "Yes, we accept water-damaged devices. After diagnostics, we inform you about possible solutions" }
+      { "title": "How long does a repair take?", "answer": "Most repairs are completed within 1-2 business days. Complex cases may require additional time" },
+      { "title": "What payment methods do you accept?", "answer": "We accept cash, bank card, online payment and installment options" },
+      { "title": "Do you use genuine parts?", "answer": "Yes, we only use genuine parts approved by Apple" },
+      { "title": "What are your warranty terms?", "answer": "All repairs come with a 3-6 month warranty. If any issue arises during the warranty period, we fix it free of charge" },
+      { "title": "Do you repair water-damaged devices?", "answer": "Yes, we accept devices with water damage. After diagnostics, we'll inform you of the possible solutions" }
     ],
     "contact": {
       "badge": "Contact Us",
-      "title": "We're Happy to Meet You",
+      "title": "We'd love to hear from you",
       "subtitle": "Have questions? Our team is here to help",
       "address_label": "Address",
       "phone_label": "Phone",

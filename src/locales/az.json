@@ -39,6 +39,22 @@
     "shipping_tax_info": "Vergilər və çatdırılma checkout zamanı hesablanır",
     "checkout": "Check out"
   },
+  "filters": {
+    "price": "Qiymət",
+    "sort": "Sırala",
+    "select": "Seç",
+    "title": "Filtrlər",
+    "apply": "Filtrləri Tətbiq Et",
+    "default": "Standart",
+    "cheap_to_expensive": "Ucuz → Baha",
+    "expensive_to_cheap": "Baha → Ucuz",
+    "model": "Model",
+    "color": "Rəng",
+    "storage": "Yaddaş",
+    "size": "Ölçü",
+    "glass_type": "Şüşə növü",
+    "no_results": "Seçilmiş filtrlərə uyğun məhsul tapılmadı"
+  },
   "checkout": {
     "title": "Sifarişi tamamla",
     "total": "Cəmi",
@@ -58,6 +74,33 @@
       "card_incomplete": "Kart nömrəsini tam daxil edin",
       "expiry_invalid": "Son istifadə tarixini düzgün daxil edin (AA/İİ)",
       "cvv_incomplete": "CVV kodunu daxil edin"
+    }
+  },
+  "auth": {
+    "login_title": "Giriş",
+    "register_title": "Qeydiyyat",
+    "email_tab": "Email",
+    "phone_tab": "Telefon",
+    "email_placeholder": "email@nümunə.com",
+    "password_placeholder": "Şifrə",
+    "logging_in": "Daxil olunur...",
+    "login_button": "Daxil ol",
+    "no_account": "Hesabınız yoxdur?",
+    "go_to_register": "Qeydiyyatdan keç",
+    "name_placeholder": "Ad",
+    "surname_placeholder": "Soyad",
+    "creating_account": "Hesab yaradılır...",
+    "create_account_button": "Hesab yarat",
+    "have_account": "Artıq hesabınız var?",
+    "go_to_login": "Daxil ol",
+    "register_success": "Qeydiyyat uğurla tamamlandı.",
+    "errors": {
+      "invalid_credentials": "E-poçt/Telefon və ya şifrə yanlışdır.",
+      "name_surname_empty": "Ad və soyad boş ola bilməz.",
+      "email_invalid": "Email düzgün formatda deyil.",
+      "phone_incomplete": "Telefon nömrəsini tam daxil edin: {{placeholder}}",
+      "password_min_length": "Şifrə ən azı 8 simvol olmalıdır.",
+      "account_exists": "Bu email və ya telefon nömrəsi ilə hesab artıq mövcuddur."
     }
   },
   "product": {
@@ -121,20 +164,6 @@
       "privacy_policy": "Məxfilik siyasəti",
       "gift_regulations": "Hədiyyə kartları üzrə qaydalar"
     }
-  },
-  "filters": {
-    "price": "Qiymət",
-    "sort": "Sırala",
-    "select": "Seç",
-    "default": "Standart",
-    "cheap_to_expensive": "Ucuz → Baha",
-    "expensive_to_cheap": "Baha → Ucuz",
-    "model": "Model",
-    "color": "Rəng",
-    "storage": "Yaddaş",
-    "size": "Ölçü",
-    "glass_type": "Şüşə növü",
-    "no_results": "Seçilmiş filtrlərə uyğun məhsul tapılmadı"
   },
   "account": {
     "title": "Hesabım",
@@ -245,20 +274,20 @@
     ],
     "carousel": [
       {
-        "sub": "13.6 İN · 256GB · NARINCI",
-        "title": "iPhone 17 Pro, 256 GB, Kosmik Narıncı"
+        "sub": "13.6 DÜYM · 256QB · NARINCI",
+        "title": "iPhone 17 Pro, 256 QB, Kosmik Narıncı"
       },
       {
-        "sub": "6.1 İN · 128GB · ÇƏHRAYI",
-        "title": "iPhone 15, 128 GB, Çəhrayı"
+        "sub": "6.1 DÜYM · 256 QB · BOZ",
+        "title": "iPhone 15 Pro, 256 QB, BOZ"
       },
       {
-        "sub": "6.7 İN · 128GB · FIRUZƏYI",
-        "title": "iPhone 16, 128 GB, Firuzəyi"
+        "sub": "6.7 DÜYM · 512 QB · Qara",
+        "title": "iPhone 16 Pro Max, 512 QB, Qara"
       },
       {
-        "sub": "13.6 İN · 256GB · GECƏ YARISI",
-        "title": "MacBook Air M5"
+        "sub": "13.6 DÜYM · 256QB · Qara",
+        "title": "MacBook Pro M5"
       }
     ],
     "offer_banner": "Təklif Visa kartı ilə onlayn taksitlə ödəniş zamanı etibarlıdır. Müraciət üçün Scan/eMoney Prime. Bütün alışlar Apple Pay və ya Google Pay ilə edilməlidir",
@@ -279,7 +308,8 @@
       "subtitle": "Lisenziyalı Apple texnisyenleri ilə cihazınız əmin əllərdədir. Ekran, batareya, su zədəsi və daha çox problem üçün etibarlı təmir",
       "cta_primary": "Müraciət Et",
       "cta_secondary": "Ətraflı Öyrən",
-      "image_alt": "Apple cihazları"
+      "image_alt": "Apple cihazları",
+      "iSpectre Service Center": "iSpectre Xidmət Mərkəzi"
     },
     "device_selector": {
       "badge": "Cihaz Seçin",
@@ -326,7 +356,16 @@
       "problem_placeholder": "Problemin qısa təsviri",
       "submit": "Göndər",
       "submitting": "Göndərilir...",
-      "success_message": "Müraciətiniz uğurla qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq"
+      "success_message": "Müraciətiniz uğurla qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq",
+      "Title": "Təmir müraciəti",
+      "Subtitle": "Cihazınızı seçdiniz",
+      "Name": "Ad və Soyad",
+      "Phone": "Telefon nömrəsi",
+      "Description": "Problemi təsvir edin",
+      "Images": "Şəkillər",
+      "Submit": "Müraciət et",
+      "Success Message": "Müraciətiniz uğurla göndərildi",
+      "Selected Device": "Seçilmiş cihaz"
     },
     "faq_section": {
       "badge": "Tez-tez Verilən Suallar",
