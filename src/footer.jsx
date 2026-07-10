@@ -56,10 +56,8 @@ function Footer() {
             <span className={`text-xs transition-transform duration-200 sm:hidden ${openSection === 'services' ? 'rotate-180' : ''}`}>▼</span>
           </h3>
           <ul className={`space-y-3 text-[13px] font-normal transition-all duration-300 overflow-hidden sm:max-h-none ${openSection === 'services' ? 'max-h-[400px] mt-4' : 'max-h-0 sm:mt-0'}`}>
-            <li><Link to="/support" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.all_services')}</Link></li>
+            
             <li><Link to="/support" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.isupport')}</Link></li>
-            <li><Link to="/trade-in" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.trade_in')}</Link></li>
-            <li><Link to="/installments" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.installments_credit')}</Link></li>
           </ul>
         </div>
 
@@ -73,12 +71,11 @@ function Footer() {
             <span className={`text-xs transition-transform duration-200 sm:hidden ${openSection === 'info' ? 'rotate-180' : ''}`}>▼</span>
           </h3>
           <ul className={`space-y-3 text-[13px] font-normal transition-all duration-300 overflow-hidden sm:max-h-none ${openSection === 'info' ? 'max-h-[400px] mt-4' : 'max-h-0 sm:mt-0'}`}>
-            <li><Link to="/about" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.about_us')}</Link></li>
-            <li><Link to="/stores" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.find_store')}</Link></li>
-            <li><Link to="/contacts" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.contacts')}</Link></li>
-            <li><Link to="/returns" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.returns_warranty')}</Link></li>
-            <li><Link to="/delivery" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.delivery_payment')}</Link></li>
-            <li><Link to="/privacy" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.privacy_policy')}</Link></li>
+            <li><Link to="/support" className="hover:text-gray-900 dark:hover:text-white hover:translateabout-x-1 inline-block transition-all duration-200">{t('footer.links.about_us')}</Link></li>
+            
+            <li><Link to="/support" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.contacts')}</Link></li>
+            <li><Link to="/support" className="hover:text-gray-900 dark:hover:text-white hover:translate-x-1 inline-block transition-all duration-200">{t('footer.links.returns_warranty')}</Link></li>
+
           </ul>
         </div>
 
