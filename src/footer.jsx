@@ -95,7 +95,7 @@ function Footer() {
               <span className="text-xs text-gray-900 dark:text-white font-medium tracking-tight">{t('footer.premium_partner')}</span>
             </div>
             <div className="flex items-center gap-2.5 bg-transparent border-0 rounded-xl py-1 cursor-default group">
-              <span className="text-sm group-hover:animate-bounce transition duration-200 text-[15px]">🛡️</span>
+              <span className="text-sm group-hover:animate-bounce transition duration-200 text-[12px]">🛡️</span>
               <span className="text-[12px] text-gray-500 dark:text-gray-400 font-normal text-left leading-snug">
                 {t('footer.authorised_service')}
               </span>
