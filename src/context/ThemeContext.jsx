@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const ThemeContext = createContext({ theme: "light", toggleTheme: () => {} });
 
@@ -10,6 +10,7 @@ function getInitialTheme() {
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getInitialTheme);
+  const isLocked = useRef(false);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -19,9 +20,19 @@ export function ThemeProvider({ children }) {
       root.classList.remove("dark");
     }
     localStorage.setItem("theme", theme);
+
+    const timer = setTimeout(() => {
+      isLocked.current = false;
+    }, 260);
+
+    return () => clearTimeout(timer);
   }, [theme]);
 
-  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+  const toggleTheme = () => {
+    if (isLocked.current) return;
+    isLocked.current = true;
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

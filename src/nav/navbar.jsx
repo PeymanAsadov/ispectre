@@ -174,7 +174,7 @@ function Navbar() {
   ];
 
   return (
-    <div className="text-[#1D1D1F] dark:text-[#F5F5F7] bg-white/80 dark:bg-[#1c1c1e]/85 backdrop-blur-md w-full border-b border-gray-100 dark:border-gray-800/60 sticky top-0 z-50 transition-colors duration-300">
+    <div className="text-[#1D1D1F] dark:text-[#F5F5F7] bg-white/90 dark:bg-[#1c1c1e]/90 backdrop-blur-sm w-full border-b border-gray-100 dark:border-gray-800/60 sticky top-0 z-50 transition-colors duration-150">
       {logoutToast && (
         <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[200] bg-gray-900 text-white text-sm font-medium px-5 py-3 rounded-full shadow-xl flex items-center gap-2 animate-[fadeIn_0.2s_ease-out]">
           <CheckCircle2 size={16} className="text-green-400" />
@@ -188,7 +188,7 @@ function Navbar() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-1.5 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition"
+              className="md:hidden p-1.5 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -199,6 +199,8 @@ function Navbar() {
               <img
                 src="https://cdn0.it4profit.com/s3/cms/site/4d/50/4d5038f7350e6de2a4eb74059ff152bc/apple_premium_partner.svg"
                 alt="Partner"
+                loading="eager"
+                decoding="async"
                 className="hidden md:block h-6 dark:invert dark:opacity-80 object-contain"
               />
             </Link>
@@ -214,7 +216,7 @@ function Navbar() {
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="flex items-center justify-center w-8 h-8 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+              className="flex items-center justify-center w-8 h-8 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -223,7 +225,7 @@ function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setOpen(!open)}
-                className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-full px-3 py-1 text-xs font-medium border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+                className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-full px-3 py-1 text-xs font-medium border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 {LANG_CODE_MAP[lang]?.toUpperCase()}
               </button>
@@ -260,7 +262,7 @@ function Navbar() {
 
             <button
               onClick={handleUserClick}
-              className="flex items-center justify-center w-8 h-8 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+              className="flex items-center justify-center w-8 h-8 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               title={currentUser ? `${currentUser.name} ${currentUser.surname}` : t("nav.login")}
             >
               <i className="fa-regular fa-user text-base"></i>
@@ -276,9 +278,17 @@ function Navbar() {
 
       {/* MOBILE DRAWER*/}
       {createPortal(
-        <div className={`fixed inset-0 z-[9999] md:hidden transition-all duration-300 ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}>
-          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-          <div className={`fixed inset-y-0 left-0 w-4/5 max-w-sm bg-white dark:bg-[#1c1c1e] text-[#1D1D1F] dark:text-[#F5F5F7] shadow-2xl p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out flex flex-col justify-between border-r border-gray-200 dark:border-gray-800 ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
+        <div
+          className={`fixed inset-0 z-[9999] md:hidden transition-opacity duration-200 ${
+            mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+        >
+          <div className="fixed inset-0 bg-black/40" onClick={() => setMobileMenuOpen(false)} />
+          <div
+            className={`fixed inset-y-0 left-0 w-4/5 max-w-sm bg-white dark:bg-[#1c1c1e] text-[#1D1D1F] dark:text-[#F5F5F7] shadow-2xl p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out flex flex-col justify-between border-r border-gray-200 dark:border-gray-800 ${
+              mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+          >
             <div>
               <div className="flex justify-between items-center mb-6 border-b border-gray-100 dark:border-gray-800 pb-4">
                 <h2 className="text-xl font-bold">Menu</h2>
@@ -294,7 +304,7 @@ function Navbar() {
                     <div key={group.titleKey} className="border-b border-gray-100 dark:border-gray-800 py-1">
                       <button
                         onClick={() => setExpandedCategory(isExpanded ? null : group.titleKey)}
-                        className="w-full flex justify-between items-center py-2.5 text-left font-medium hover:text-blue-500 transition"
+                        className="w-full flex justify-between items-center py-2.5 text-left font-medium hover:text-blue-500 transition-colors"
                       >
                         <span>{t(group.titleKey)}</span>
                         {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -306,7 +316,7 @@ function Navbar() {
                               <Link
                                 to={link.path}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="block py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition"
+                                className="block py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
                               >
                                 {link.label || t(link.labelKey)}
                               </Link>
@@ -325,7 +335,7 @@ function Navbar() {
                     <div key={cat} className="border-b border-gray-100 dark:border-gray-800 py-1">
                       <button
                         onClick={() => setExpandedCategory(isExpanded ? null : cat)}
-                        className="w-full flex justify-between items-center py-2.5 text-left font-medium hover:text-blue-500 transition capitalize"
+                        className="w-full flex justify-between items-center py-2.5 text-left font-medium hover:text-blue-500 transition-colors capitalize"
                       >
                         <span>{formatCategoryLabel(cat)}</span>
                         {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -346,7 +356,7 @@ function Navbar() {
                               <Link
                                 to={`/category/${cat}/${p.id}`}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="block py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition truncate"
+                                className="block py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors truncate"
                               >
                                 {p.name}
                               </Link>
@@ -359,7 +369,7 @@ function Navbar() {
                 })}
 
                 <div className="py-3 border-b border-gray-100 dark:border-gray-800">
-                  <Link to="/support" onClick={() => setMobileMenuOpen(false)} className="block font-medium hover:text-blue-500 transition">
+                  <Link to="/support" onClick={() => setMobileMenuOpen(false)} className="block font-medium hover:text-blue-500 transition-colors">
                     {t("nav.support")}
                   </Link>
                 </div>

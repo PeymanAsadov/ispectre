@@ -13,30 +13,23 @@ function Nav() {
       const currentY = window.scrollY;
       const delta = currentY - lastScrollY.current;
 
-
       if (Math.abs(delta) < 5) return;
 
-      // Səhifənin başında həmişə görünsün
       if (currentY <= 70) {
         if (hiddenRef.current) {
           hiddenRef.current = false;
           setHidden(false);
         }
-
         lastScrollY.current = currentY;
         return;
       }
-
 
       if (delta > 0) {
         if (!hiddenRef.current) {
           hiddenRef.current = true;
           setHidden(true);
         }
-      }
-
-
-      else {
+      } else {
         if (hiddenRef.current) {
           hiddenRef.current = false;
           setHidden(false);
@@ -46,18 +39,13 @@ function Nav() {
       lastScrollY.current = currentY;
     };
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out will-change-transform ${
         hidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >

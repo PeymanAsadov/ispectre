@@ -119,7 +119,6 @@ let cachedSearchIndex = null;
 function buildSearchIndex() {
   const index = [];
 
-  // 1. Səhifələri əlavə edirik
   PAGE_ENTRIES.forEach((entry) => {
     index.push({
       pageRoute: entry.route,
@@ -176,7 +175,6 @@ function invalidateSearchIndex() {
   cachedSearchIndex = null;
 }
 
-// Admin paneldən məhsul əlavə/silinəndə keşi etibarsız sayırıq
 if (typeof window !== "undefined") {
   window.addEventListener("ispectre-products-updated", invalidateSearchIndex);
 }
@@ -195,7 +193,6 @@ function SearchBar() {
   // Keşlənmiş indeksi oxuyuruq — heç bir yeni sorğu getmir
   const searchIndex = useMemo(() => getSearchIndex(), []);
 
-  // Yazı zamanı debounce — hər hərfdə deyil, 200ms fasilədən sonra filtr işə düşür
   useEffect(() => {
     const handle = setTimeout(() => {
       setDebouncedQuery(query);
@@ -307,10 +304,6 @@ function SearchBar() {
     }
   };
 
-  // Enter düyməsi ilə axtarış ikonuna klik eyni məntiqi paylaşır.
-  // Nəticə yoxdursa istifadəçini 404 (Notfound) səhifəsinə yönləndiririk,
-  // çünki "/search-not-found" heç bir Route ilə uyğun gəlmir və
-  // <Route path="*" element={<Notfound />} /> onu tutur.
   const performSearch = () => {
     if (!query) return;
 
@@ -371,19 +364,19 @@ function SearchBar() {
           <Search size={16} />
         </button>
         <input
-          ref={inputRef}
-          type="text"
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setOpen(true);
-            setActiveIdx(-1);
-          }}
-          onFocus={() => query && setOpen(true)}
-          onKeyDown={handleKeyDown}
-          placeholder={t("nav.search_placeholder")}
-          className="w-full bg-gray-50 dark:bg-[#232326] border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 rounded-full pl-10 pr-10 py-2.5 text-sm outline-none focus:border-gray-400 dark:focus:border-gray-500"
-        />
+  ref={inputRef}
+  type="text"
+  value={query}
+  onChange={(e) => {
+    setQuery(e.target.value);
+    setOpen(true);
+    setActiveIdx(-1);
+  }}
+  onFocus={() => query && setOpen(true)}
+  onKeyDown={handleKeyDown}
+  placeholder={t("nav.search_placeholder")}
+  className="w-full bg-gray-50 dark:bg-[#232326] border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 rounded-full pl-10 pr-10 py-2.5 text-sm outline-none transition-colors duration-150 focus:border-gray-400 dark:focus:border-gray-500"
+/>
 
         {query && (
           <button

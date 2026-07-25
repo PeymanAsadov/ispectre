@@ -218,7 +218,7 @@ const featuredProducts = {
   const scrollContainerRef = useRef(null);
   const categoryScrollRef = useRef(null);
 
-  // ── Arrow visibility state (left arrow hidden until scrolled, right arrow hidden at the end) ──
+  // ── Arrow visibility state ──
   const [newArrows, setNewArrows] = useState({ left: false, right: true });
   const [catArrows, setCatArrows] = useState({ left: false, right: true });
 
@@ -421,7 +421,7 @@ const featuredProducts = {
   const carouselNext = () => setCarouselIdx(i => Math.min(maxIdx, i + 1));
 
   return (
-    <div className="bg-white dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen font-sans transition-colors duration-300">
+    <div className="bg-white dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen font-sans transition-colors duration-150">
 
           {/* HERO SECTION */}
 
@@ -455,7 +455,7 @@ const featuredProducts = {
                   </p>
                 )}
                 <div className="pt-2 sm:pt-2.5">
-                  <button className="bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-xs sm:text-sm font-semibold px-6 py-2.5 sm:px-7 sm:py-3 rounded-full shadow-sm hover:shadow-md hover:bg-gray-700 dark:hover:bg-gray-200 active:scale-95 transition-all">
+                  <button className="bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-xs sm:text-sm font-semibold px-6 py-2.5 sm:px-7 sm:py-3 rounded-full shadow-sm hover:shadow-md hover:bg-gray-700 dark:hover:bg-gray-200 active:scale-95 transition-colors">
                     {slide.cta}
                   </button>
                 </div>
@@ -465,6 +465,8 @@ const featuredProducts = {
                 <img
                   src={slide.image}
                   alt={slide.brand}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
                   className="max-h-[290px] sm:max-h-[300px] md:max-h-[360px] lg:max-h-[420px] w-auto object-contain"
                 />
               </div>
@@ -498,9 +500,7 @@ const featuredProducts = {
 
           {/* VIEW ALL APPLE PRODUCTS */}
           {/* FIX: grid version yalnız lg (≥1024px) ekranlarda göstərilir.
-              ipad / tablet (md range, 768-1024px) və mobil ekranlarda isə
-              saga-sola scroll butonlu (arrow) versiya işləyir ki, 7 kateqoriya
-              bir-birinin içinə girib overlap olmasın. */}
+             */}
 
       <section className="max-w-[1200px] mx-auto px-5 sm:px-6 md:px-6 pt-8 sm:pt-10 md:pt-12 pb-6 sm:pb-8">
         <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 ">
@@ -519,7 +519,9 @@ const featuredProducts = {
                 <img
                   src={cat.image}
                   alt={cat.name}
-                  className="w-20 h-20 object-contain group-hover:scale-105 transition"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-20 h-20 object-contain group-hover:scale-105 transition-transform duration-200"
                 />
               </div>
               <p className="font-semibold text-sm text-gray-900 dark:text-gray-200">{cat.name}</p>
@@ -557,7 +559,9 @@ const featuredProducts = {
                   <img
                     src={cat.image}
                     alt={cat.name}
-                    className="w-14 h-14 sm:w-20 sm:h-20 object-contain group-hover:scale-105 transition"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-14 h-14 sm:w-20 sm:h-20 object-contain group-hover:scale-105 transition-transform duration-200"
                   />
                 </div>
                 <p className="font-semibold text-sm text-gray-900 dark:text-gray-200 text-center">{cat.name}</p>
@@ -590,7 +594,7 @@ const featuredProducts = {
           {newArrows.left && (
             <button
               onClick={scrollLeft}
-              className="absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center hover:shadow-lg transition-all"
+              className="absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center hover:shadow-lg transition-shadow duration-200"
               aria-label="Scroll left"
             >
               <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -607,7 +611,7 @@ const featuredProducts = {
               <Link
                 key={product.id}
                 to={getProductLink(product.title)}
-                className="group flex-none flex flex-col justify-between bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-2xl p-4 w-[240px] sm:w-[calc((100%-16px)/2)] md:w-[calc((100%-16px)/2)] lg:w-[calc((100%-32px)/3)] xl:w-[calc((100%-48px)/4)] hover:shadow-md transition-all duration-300"
+                className="group flex-none flex flex-col justify-between bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-2xl p-4 w-[240px] sm:w-[calc((100%-16px)/2)] md:w-[calc((100%-16px)/2)] lg:w-[calc((100%-32px)/3)] xl:w-[calc((100%-48px)/4)] hover:shadow-md transition-shadow duration-200"
               >
                 <div className="bg-[#f5f5f7] dark:bg-zinc-800/50 rounded-xl overflow-hidden flex items-center justify-center relative w-full aspect-square mb-3">
                   <span className="absolute top-3 left-3 z-10 bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
@@ -616,6 +620,8 @@ const featuredProducts = {
                   <img
                     src={product.image}
                     alt={product.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-4/5 h-4/5 object-contain group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -639,7 +645,7 @@ const featuredProducts = {
           {newArrows.right && (
             <button
               onClick={scrollRight}
-              className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center hover:shadow-lg transition-all"
+              className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white dark:bg-zinc-800 border dark:border-zinc-700 shadow-md rounded-full flex items-center justify-center hover:shadow-lg transition-shadow duration-200"
               aria-label="Scroll right"
             >
               <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
@@ -648,7 +654,7 @@ const featuredProducts = {
         </div>
       </section>
 
-          {/* PROMOTIONAL BLOCKS (Trade-In / Loyalty / Blog) */}
+          {/* PROMOTIONAL BLOCKS */}
       <section className="max-w-[1200px] mx-auto px-6 py-8 space-y-4">
         {translatedPromoBlocks.map(block => (
           <div
@@ -660,6 +666,8 @@ const featuredProducts = {
               <img
                 src={block.image}
                 alt={block.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover grayscale-[20%] dark:grayscale-[40%]"
               />
             </div>
@@ -682,7 +690,7 @@ const featuredProducts = {
           {translatedServices.map(svc => (
             <div
               key={svc.id}
-              className="bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-xl p-5 hover:shadow-md transition-all cursor-default"
+              className="bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-xl p-5 hover:shadow-md transition-shadow duration-200 cursor-default"
             >
               <p className="text-[10px] font-bold tracking-widest text-gray-400 dark:text-gray-500 uppercase mb-1">{svc.label}</p>
               <p className={`text-sm font-semibold leading-snug ${svc.color} `}>
@@ -698,7 +706,7 @@ const featuredProducts = {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ minHeight: "360px" }}>
           <Link
             to={translatedFeaturedLarge.link}
-            className="group bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-2xl p-8 flex flex-col justify-between hover:shadow-lg transition-all"
+            className="group bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-2xl p-8 flex flex-col justify-between hover:shadow-lg transition-shadow duration-200"
           >
             <div>
               <div className="flex gap-2 mb-3">
@@ -708,7 +716,7 @@ const featuredProducts = {
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 leading-tight">{translatedFeaturedLarge.title}</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{translatedFeaturedLarge.desc}</p>
               <p className="text-sm font-bold text-gray-900 dark:text-white mb-4">{translatedFeaturedLarge.price}</p>
-              <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white text-xs font-semibold px-5 py-2 rounded-full transition-all"  >
+              <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white text-xs font-semibold px-5 py-2 rounded-full transition-colors"  >
                 {t('home.buy_now')}
               </button>
             </div>
@@ -716,6 +724,8 @@ const featuredProducts = {
               <img
                 src={translatedFeaturedLarge.image}
                 alt={translatedFeaturedLarge.title}
+                loading="lazy"
+                decoding="async"
                 className="h-44 object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -726,11 +736,13 @@ const featuredProducts = {
               <Link
                 key={i}
                 to={item.link}
-                className="group flex-1 bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-2xl p-6 flex items-center gap-5 hover:shadow-lg transition-all"
+                className="group flex-1 bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-2xl p-6 flex items-center gap-5 hover:shadow-lg transition-shadow duration-200"
               >
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                   className="h-24 w-24 object-contain flex-none group-hover:scale-105 transition-transform duration-300"
                 />
                 <div>
@@ -741,7 +753,7 @@ const featuredProducts = {
                   <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1 leading-tight">{item.title}</h3>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{item.desc}</p>
                   <p className="text-xs font-bold text-gray-800 dark:text-gray-200 mb-3">{item.price}</p>
-                  <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-all" >
+                  <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-colors" >
                     {t('home.buy_now')}
                   </button>
                 </div>
@@ -761,7 +773,7 @@ const featuredProducts = {
           {carouselIdx > 0 && (
             <button
               onClick={carouselPrev}
-              className="flex-none w-10 h-10 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow rounded-full flex items-center justify-center mr-3 hover:shadow-md transition-all text-gray-700 dark:text-gray-300"
+              className="flex-none w-10 h-10 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow rounded-full flex items-center justify-center mr-3 hover:shadow-md transition-shadow duration-200 text-gray-700 dark:text-gray-300"
               aria-label="Previous"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -778,18 +790,20 @@ const featuredProducts = {
                 <Link
                   key={item.id}
                   to={item.link}
-                  className="group bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-2xl p-6 flex flex-col items-center flex-none hover:shadow-lg transition-all"
+                  className="group bg-[#f5f5f7] dark:bg-zinc-900 border dark:border-zinc-800 rounded-2xl p-6 flex flex-col items-center flex-none hover:shadow-lg transition-shadow duration-200"
                   style={{ width: `calc(100% / ${visibleCount} - ${((visibleCount - 1) * 16 / visibleCount)}px)` }}
                 >
                   <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">{item.sub}</p>
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="h-36 w-auto object-contain group-hover:scale-105 transition-transform duration-300 mb-4"
                   />
                   <h3 className="text-xs font-semibold text-gray-800 dark:text-gray-200 text-center mb-1 leading-snug">{item.title}</h3>
                   <p className="text-sm font-bold text-gray-900 dark:text-white mb-3">{item.price}</p>
-                  <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white text-xs font-semibold px-5 py-1.5 rounded-full transition-all">
+                  <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white text-xs font-semibold px-5 py-1.5 rounded-full transition-colors">
                     {t('home.buy_now')}
                   </button>
                 </Link>
@@ -801,7 +815,7 @@ const featuredProducts = {
           {carouselIdx < maxIdx && (
             <button
               onClick={carouselNext}
-              className="flex-none w-10 h-10 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow rounded-full flex items-center justify-center ml-3 hover:shadow-md transition-all text-gray-700 dark:text-gray-300"
+              className="flex-none w-10 h-10 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow rounded-full flex items-center justify-center ml-3 hover:shadow-md transition-shadow duration-200 text-gray-700 dark:text-gray-300"
               aria-label="Next"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>

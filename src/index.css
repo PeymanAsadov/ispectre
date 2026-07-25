@@ -4,7 +4,7 @@
 
 /*  Dark Mode Base  */
 html {
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
   color-scheme: light;
 }
 
@@ -13,7 +13,7 @@ html.dark {
 }
 
 body {
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .dark body {
