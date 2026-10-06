@@ -193,110 +193,194 @@
   "home": {
     "hero": [
       {
-        "tagline": "Titanium Camera Housing",
-        "promo": "Trade in your old iPhone and get up to 300 ₼ off",
+        "badge": "NEW GENERATION",
+        "tagline": "Titanium Camera Action",
+        "promo": "Get up to 300 ₼ trade-in credit towards your new iPhone",
         "note": "Available in Cosmic Orange and Desert Titanium",
-        "cta": "Buy now"
+        "cta": "Buy Now"
       },
       {
-        "tagline": "Insanely Powerful",
-        "promo": "Built for professionals. Up to 22 hours of battery life",
+        "badge": "M5 POWER",
+        "tagline": "Mind-blowing. Power-loaded",
+        "promo": "Built for pro workflows. Experience up to 22 hours of battery life",
         "note": "Available in Space Black and Silver",
-        "cta": "Buy now"
+        "cta": "Buy Now"
       },
       {
-        "tagline": "A Symphony in Blue. Reimagined",
-        "promo": "Get 6 months of Apple Music free with the new AirPods Max Sky Blue",
+        "badge": "PRO AUDIO",
+        "tagline": "Symphony in Blue. Sound remastered",
+        "promo": "Get 6 months of Apple Music for free with your new AirPods Max",
         "note": "Now with USB-C and Pro-level Active Noise Cancellation",
-        "cta": "Buy now"
+        "cta": "Buy Now"
       },
       {
-        "tagline": "Welcome to the era of spatial computing",
-        "promo": "Discover how digital content blends with your physical space",
-        "note": "Demo sessions available in our stores",
+        "badge": "SPATIAL COMPUTING",
+        "tagline": "Welcome to spatial computing",
+        "promo": "Experience digital content that blends seamlessly with your physical space",
+        "note": "Demo sessions available in-store now",
         "cta": "Learn more"
-      },
-      {
-        "tagline": "Sunshine. Superpowered",
-        "promo": "The thinnest MacBook Air ever. With M5",
-        "note": "Available now",
-        "cta": "Discover"
       }
     ],
     "promo_blocks": [
       {
-        "title": "Trade-In",
-        "desc": "Upgrade your MacBook or iPhone at the best price. Trade in your old device and get a discount",
-        "cta": "Submit"
+        "tag": "SUSTAINABLE & SMART",
+        "title": "Trade-In Program",
+        "desc": "Upgrade your MacBook or iPhone for the best price. Trade in your old device and unlock instant savings",
+        "cta": "Calculate Trade-In"
       },
       {
-        "title": "Loyalty Program",
-        "desc": "Get exclusive benefits — earn more bonuses with every purchase. Points can be redeemed for up to 10% off",
-        "cta": "Submit"
+        "tag": "VIP EXPERIENCE",
+        "title": "Loyalty & Rewards",
+        "desc": "Get exclusive benefits — accumulate cashback bonus points with every single purchase and redeem up to 10%.",
+        "cta": "Join Program"
       },
       {
-        "title": "Blog",
-        "desc": "News, product releases, lifestyle, company stories and updates",
-        "cta": "Submit"
+        "tag": "EDITORIAL & NEWS",
+        "title": "Apple Insights & Stories",
+        "desc": "Discover breaking tech releases, ecosystem tutorials, pro workflows, and lifestyle stories.",
+        "cta": "Explore Blog"
       }
     ],
     "services": [
       {
         "label": "DELIVERY & PICKUP",
-        "title": "Order online and get it delivered to your home"
+        "title": "Order online with fast express home delivery or free store pick-up."
       },
       {
-        "label": "FINANCING",
-        "title": "Special financing. Pay in installments, interest-free"
+        "label": "EASY FINANCING",
+        "title": "0% interest financing options. Pay monthly over time effortlessly."
       },
       {
-        "label": "SALE",
-        "title": "Find great everyday prices, buy online with delivery or in-store pickup"
+        "label": "OFFICIAL WARRANTY",
+        "title": "100% genuine Apple products with full 2-year authorized service warranty."
       },
       {
-        "label": "TRADE-IN",
-        "title": "Upgrade your iPhone 11 / iPhone 12"
+        "label": "TRADE-IN CREDIT",
+        "title": "Exchange your current iPhone or Mac for instant credit towards new models."
       }
     ],
     "featured": [
       {
+        "badge": "FEATURED SALE",
+        "badgeSub": "Save up to 20%",
         "title": "MacBook Neo 13\" A18 Pro",
-        "desc": "Lightning fast. 13-inch display, 512GB"
+        "desc": "Lightning fast performance. Liquid Retina display, 512GB SSD.",
+        "specs": [
+          "A18 Pro Chip",
+          "13.6-inch Retina",
+          "18hr Battery"
+        ]
       },
       {
-        "title": "APPLE AirPods Max 2 Headphones",
-        "desc": "Listen. Remastered"
+        "badge": "HOT ITEM",
+        "badgeSub": "Limited Stock",
+        "title": "AirPods Max 2 Sky Blue",
+        "desc": "High-fidelity audio remastered.",
+        "specs": [
+          "ANC",
+          "Spatial Audio",
+          "USB-C"
+        ]
       },
       {
-        "title": "iPhone 17 Pro Max",
-        "desc": "Packed with features. Great value"
+        "badge": "BESTSELLER",
+        "badgeSub": "Top Rated",
+        "title": "iPhone 17 Pro Max 256GB",
+        "desc": "Titanium build. Pro camera system.",
+        "specs": [
+          "A19 Pro",
+          "48MP Camera",
+          "Action Button"
+        ]
       }
     ],
     "carousel": [
       {
-        "sub": "13.6 IN · 256GB · ORANGE",
-        "title": "iPhone 17 Pro, 256 GB, Cosmic Orange"
+        "sub": "13.6 IN · 256GB · COSMIC ORANGE",
+        "title": "iPhone 17 Pro, 256 GB, Cosmic Orange",
+        "specs": [
+          "Super Retina XDR",
+          "A19 Pro Chip",
+          "ProMotion 120Hz"
+        ]
       },
       {
-        "sub": "6.1 IN · 256 GB · GRAY",
-        "title": "iPhone 15 Pro, 256 GB, GRAY"
+        "sub": "6.1 IN · 256GB · TITANIUM GRAY",
+        "title": "iPhone 15 Pro, 256 GB, Gray",
+        "specs": [
+          "A17 Pro Chip",
+          "Titanium Frame",
+          "USB 3 Speed"
+        ]
       },
       {
-        "sub": "6.7 IN · 512 GB · Black",
-        "title": "iPhone 16 Pro Max, 512 GB, Black"
+        "sub": "6.7 IN · 512GB · TEAL",
+        "title": "iPhone 16 Pro Max, 512 GB, Teal",
+        "specs": [
+          "Camera Control",
+          "4K 120fps Video",
+          "A18 Pro"
+        ]
       },
       {
-        "sub": "13.6 IN · 256GB · Black",
-        "title": "MacBook Pro M5"
+        "sub": "14.2 IN · 512GB · SPACE BLACK",
+        "title": "MacBook Pro M5 14-inch",
+        "specs": [
+          "M5 Chip 12-core",
+          "ProMotion 120Hz",
+          "Up to 22h Battery"
+        ]
+      },
+      {
+        "sub": "11 IN · 256GB · SPACE GRAY",
+        "title": "iPad Pro M4 Ultra Thin",
+        "specs": [
+          "OLED Tandem Display",
+          "M4 Processor",
+          "Apple Pencil Pro Support"
+        ]
       }
     ],
+    "announcement": "Get up to 18-month 0% installment plans with official warranty & free delivery on all new arrivals.",
+    "categories_title": "Explore Apple Categories",
+    "categories_subtitle": "Select a family to discover specs, pricing, and configurations",
+    "filters": {
+      "all": "All"
+    },
+    "see_whats_new": "See What's New",
+    "new_subtitle": "Latest releases supercharged with next-generation chips",
+    "new_release": "NEW RELEASE",
+    "quick_view": "Quick View",
+    "price": "Price",
+    "add": "Add",
+    "added": "Added",
+    "why_choose": "Why Choose Us",
+    "premium_services": "Premium Apple Services",
+    "starting_at": "Starting at",
+    "buy_now": "Buy Now",
+    "quick_order": "Quick Order",
+    "quick_buy": "Quick Buy",
+    "magic_outside": "Magic on the Outside",
+    "magic_subtitle": "Crafted precision, ultra-vivid displays, and unmatched design engineering",
+    "quick_preview": "QUICK PREVIEW",
+    "official_specs": "Apple Official Specs",
+    "chipset": "Chipset",
+    "chipset_value": "Apple Silicon",
+    "display": "Display",
+    "display_value": "Super Retina",
+    "warranty": "Warranty",
+    "warranty_value": "2 Years",
+    "view_details": "View Details Page",
+    "add_to_bag": "Add to Bag",
+    "toast_added": "Added {{title}} to Bag!",
+    "prev": "Previous",
+    "next": "Next",
+    "close": "Close",
+    "slide_n": "Slide {{n}}",
     "offer_banner": "Offer valid when paying online in installments with a Visa card. To apply, scan for eMoney Prime. All purchases must be made via Apple Pay or Google Pay",
     "view_all_apple": "View all Apple products",
-    "see_whats_new": "See what's new",
     "discover_services": "Discover services and more",
-    "buy_now": "Buy now",
     "sale": "SALE",
-    "magic_outside": "Magical outside, innovative inside",
     "new_badge": "NEW",
     "from_price": "From {{price}} ₼ or {{monthly}} ₼/{{months}} mo",
     "from_category_price": "From {{price}}"
@@ -325,10 +409,26 @@
       "subtitle": "Years of experience, certified staff and genuine parts — all at your service"
     },
     "why_choose_items": [
-      { "icon": "shield", "title": "Official Warranty", "desc": "Every repair comes with a warranty certificate" },
-      { "icon": "wrench", "title": "Modern Equipment", "desc": "We use tools and technology that meet Apple standards" },
-      { "icon": "badge", "title": "Certified Staff", "desc": "Our technicians are certified by Apple" },
-      { "icon": "truck", "title": "Fast Turnaround", "desc": "In most cases we offer same-day service" }
+      {
+        "icon": "shield",
+        "title": "Official Warranty",
+        "desc": "Every repair comes with a warranty certificate"
+      },
+      {
+        "icon": "wrench",
+        "title": "Modern Equipment",
+        "desc": "We use tools and technology that meet Apple standards"
+      },
+      {
+        "icon": "badge",
+        "title": "Certified Staff",
+        "desc": "Our technicians are certified by Apple"
+      },
+      {
+        "icon": "truck",
+        "title": "Fast Turnaround",
+        "desc": "In most cases we offer same-day service"
+      }
     ],
     "stats_section": {
       "badge": "Our Achievements",
@@ -336,10 +436,22 @@
       "subtitle": "Behind every statistic is a satisfied customer"
     },
     "stats_items": [
-      { "number": "15,000+", "title": "Successful repairs completed" },
-      { "number": "98%", "title": "Customer satisfaction" },
-      { "number": "8 years", "title": "Industry experience" },
-      { "number": "24/7", "title": "Technical support" }
+      {
+        "number": "15,000+",
+        "title": "Successful repairs completed"
+      },
+      {
+        "number": "98%",
+        "title": "Customer satisfaction"
+      },
+      {
+        "number": "8 years",
+        "title": "Industry experience"
+      },
+      {
+        "number": "24/7",
+        "title": "Technical support"
+      }
     ],
     "repair_form": {
       "badge": "Request Form",
@@ -373,11 +485,26 @@
       "subtitle": "Find answers to the most common questions right here"
     },
     "faqs": [
-      { "title": "How long does a repair take?", "answer": "Most repairs are completed within 1-2 business days. Complex cases may require additional time" },
-      { "title": "What payment methods do you accept?", "answer": "We accept cash, bank card, online payment and installment options" },
-      { "title": "Do you use genuine parts?", "answer": "Yes, we only use genuine parts approved by Apple" },
-      { "title": "What are your warranty terms?", "answer": "All repairs come with a 3-6 month warranty. If any issue arises during the warranty period, we fix it free of charge" },
-      { "title": "Do you repair water-damaged devices?", "answer": "Yes, we accept devices with water damage. After diagnostics, we'll inform you of the possible solutions" }
+      {
+        "title": "How long does a repair take?",
+        "answer": "Most repairs are completed within 1-2 business days. Complex cases may require additional time"
+      },
+      {
+        "title": "What payment methods do you accept?",
+        "answer": "We accept cash, bank card, online payment and installment options"
+      },
+      {
+        "title": "Do you use genuine parts?",
+        "answer": "Yes, we only use genuine parts approved by Apple"
+      },
+      {
+        "title": "What are your warranty terms?",
+        "answer": "All repairs come with a 3-6 month warranty. If any issue arises during the warranty period, we fix it free of charge"
+      },
+      {
+        "title": "Do you repair water-damaged devices?",
+        "answer": "Yes, we accept devices with water damage. After diagnostics, we'll inform you of the possible solutions"
+      }
     ],
     "contact": {
       "badge": "Contact Us",

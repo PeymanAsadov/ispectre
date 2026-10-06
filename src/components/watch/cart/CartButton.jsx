@@ -21,7 +21,7 @@ function CartButton() {
         <>
             <button
                 onClick={() => setOpen(true)}
-                className="relative p-2 rounded-full hover:bg-gray-100 transition"
+                className="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 aria-label={t("cart.title")}
             >
                 <ShoppingBag size={20} />

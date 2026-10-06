@@ -45,13 +45,16 @@ function ScrollToTopButton() {
     return (
         <button
             onClick={scrollToTop}
+            aria-label="Scroll to top"
             className={`fixed bottom-6 right-6 z-50
       w-12 h-12 rounded-full
-      bg-black text-white
-      shadow-xl
-      hover:scale-110
-      hover:bg-neutral-800
-      transition-all duration-500
+      bg-zinc-900/80 dark:bg-[#1c1c1e]/80 backdrop-blur-xl text-white
+      border border-white/20 dark:border-white/10
+      shadow-[0_8px_30px_rgb(0,0,0,0.3)]
+      hover:scale-110 active:scale-95
+      hover:bg-zinc-800 dark:hover:bg-[#2c2c2e]
+      hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]
+      transition-all duration-300 flex items-center justify-center
       ${visible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-5 pointer-events-none"

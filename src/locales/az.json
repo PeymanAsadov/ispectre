@@ -193,110 +193,194 @@
   "home": {
     "hero": [
       {
-        "tagline": "Titanium Kamera Motor",
-        "promo": "Köhnə iPhone-u təhvil verin və 300 ₼-dək endirim qazanın",
-        "note": "Kosmik Narıncı və Səhra Titaniumu rənglərində",
+        "badge": "YENİ NƏSİL",
+        "tagline": "Titan Kamera. Aksiyon.",
+        "promo": "Köhnə iPhone-unuzu təhvil verin və yeni iPhone üçün 300 ₼-dək güzəşt qazanın.",
+        "note": "Kosmik Narıncı və Səhra Titanı rənglərində",
         "cta": "İndi al"
       },
       {
-        "tagline": "Heyrətamiz Güclə dolu",
-        "promo": "Peşəkarlar üçün yaradılıb 22 saata qədər batareya ömrü",
+        "badge": "M5 GÜCÜ",
+        "tagline": "Heyrətamiz. Güclə dolu.",
+        "promo": "Peşəkar iş axını üçün yaradılıb. 22 saata qədər batareya ömrü.",
         "note": "Space Black və Silver rənglərində",
         "cta": "İndi al"
       },
       {
-        "tagline": "Mavinin Simfoniyası Yenidən kəşf",
-        "promo": "Yeni AirPods Max Sky Blue ilə 6 ay pulsuz Apple Music əldə edin",
-        "note": "İndi USB-C və Pro-level aktiv Səs-küy Ləğvi ilə",
+        "badge": "PRO SƏS",
+        "tagline": "Mavinin simfoniyası. Səs yenidən yaradıldı.",
+        "promo": "Yeni AirPods Max ilə 6 ay pulsuz Apple Music qazanın.",
+        "note": "İndi USB-C və Pro səviyyəli aktiv səs-küy ləğvi ilə",
         "cta": "İndi al"
       },
       {
-        "tagline": "Məkan hesablamaları erasına xoş gəlmisiniz",
-        "promo": "Rəqəmsal məzmunun fiziki məkanınızla necə birləşdiyini kəşf edin",
+        "badge": "MƏKAN HESABLAMALARI",
+        "tagline": "Məkan hesablamaları erasına xoş gəlmisiniz.",
+        "promo": "Rəqəmsal məzmunun fiziki məkanınızla necə qovuşduğunu kəşf edin.",
         "note": "Mağazalarımızda sınaq seansları mövcuddur",
         "cta": "Ətraflı"
-      },
-      {
-        "tagline": "Günəş işığı. Super güc",
-        "promo": "İndiyə qədər ən incə MacBook Air. M5 ilə",
-        "note": "Artıq satışda",
-        "cta": "Kəşf et"
       }
     ],
     "promo_blocks": [
       {
-        "title": "Trade-In",
-        "desc": "Ən yaxşı qiymətə MacBook və ya iPhone-nuzu yeniləyin. Köhnə cihazı təhvil verin, endirim qazanın",
-        "cta": "Göndər"
+        "tag": "ƏLVERİŞLİ VƏ ZƏKİ",
+        "title": "Trade-In Proqramı",
+        "desc": "MacBook və ya iPhone-nuzu ən yaxşı qiymətə yeniləyin. Köhnə cihazı təhvil verin və ani endirim qazanın.",
+        "cta": "Trade-In hesabla"
       },
       {
-        "title": "Loyallıq Proqramı",
-        "desc": "Eksklüziv üstünlüklər əldə edin — hər alışla daha çox bonus qazanın, Xallar 10%-ə qədər dəyişdirilə bilər",
-        "cta": "Göndər"
+        "tag": "VIP TƏCRÜBƏ",
+        "title": "Loyallıq və Mükafatlar",
+        "desc": "Eksklüziv üstünlüklər əldə edin — hər alışla keşbek xalları toplayın və 10%-dək endirimə dəyişin.",
+        "cta": "Proqrama qoşul"
       },
       {
-        "title": "Bloq",
-        "desc": "Xəbərlər, məhsul buraxılışları, həyat tərzi, şirkət hekayələri və yeniliklər",
-        "cta": "Göndər"
+        "tag": "XƏBƏR VƏ MƏQALƏLƏR",
+        "title": "Apple Xəbərləri və Hekayələri",
+        "desc": "Yeni texnologiya buraxılışlarını, ekosistem təlimatlarını, peşəkar iş axınlarını və həyat tərzi hekayələrini kəşf edin.",
+        "cta": "Bloqa bax"
       }
     ],
     "services": [
       {
         "label": "ÇATDIRILMA VƏ TƏHVİL",
-        "title": "Onlayn sifariş edin və evinizə çatdırılsın"
+        "title": "Onlayn sifariş edin: sürətli ekspress çatdırılma və ya mağazadan pulsuz təhvil."
       },
       {
-        "label": "MALİYYƏ",
-        "title": "Xüsusi maliyyələşdirmə. Faizziz, hissə-hissə ödəyin"
+        "label": "RAHAT MALİYYƏLƏŞDİRMƏ",
+        "title": "0% faizli taksit imkanları. Aylıq hissələrlə rahat ödəyin."
       },
       {
-        "label": "SATIŞ",
-        "title": "Gündəlik sərfəli qiymətlər tapın, onlayn alın, çatdırılma və ya mağazadan götürün"
+        "label": "RƏSMİ ZƏMANƏT",
+        "title": "100% orijinal Apple məhsulları, 2 illik rəsmi servis zəmanəti ilə."
       },
       {
-        "label": "TRADE-IN",
-        "title": "iPhone 11 / iPhone 12-nizi yeniləyin"
+        "label": "TRADE-IN KREDİTİ",
+        "title": "Mövcud iPhone və ya Mac-ınızı yeni modellər üçün ani kreditə dəyişin."
       }
     ],
     "featured": [
       {
+        "badge": "SEÇİLMİŞ ENDİRİM",
+        "badgeSub": "20%-dək qənaət",
         "title": "MacBook Neo 13\" A18 Pro",
-        "desc": "İldırım sürəti ilə. 13 düym displey, 512GB"
+        "desc": "İldırım sürətli performans. Liquid Retina displey, 512GB SSD.",
+        "specs": [
+          "A18 Pro çipi",
+          "13.6 düymlük Retina",
+          "18 saat batareya"
+        ]
       },
       {
-        "title": "Qulaqlıq APPLE AirPods Max 2",
-        "desc": "Dinləmə. Yenidən master olundu"
+        "badge": "TREND MƏHSUL",
+        "badgeSub": "Məhdud say",
+        "title": "AirPods Max 2 Sky Blue",
+        "desc": "Yüksək keyfiyyətli səs yenidən yaradıldı.",
+        "specs": [
+          "Səs-küy ləğvi",
+          "Məkani səs",
+          "USB-C"
+        ]
       },
       {
-        "title": "iPhone 17 Pro Max",
-        "desc": "Xüsusiyyətlərlə dolu. Dəyərli paket"
+        "badge": "ƏN ÇOX SATILAN",
+        "badgeSub": "Ən yüksək reytinq",
+        "title": "iPhone 17 Pro Max 256GB",
+        "desc": "Titan korpus. Pro kamera sistemi.",
+        "specs": [
+          "A19 Pro",
+          "48MP kamera",
+          "Fəaliyyət düyməsi"
+        ]
       }
     ],
     "carousel": [
       {
-        "sub": "13.6 DÜYM · 256QB · NARINCI",
-        "title": "iPhone 17 Pro, 256 QB, Kosmik Narıncı"
+        "sub": "13.6 DÜYM · 256QB · KOSMİK NARINCI",
+        "title": "iPhone 17 Pro, 256 QB, Kosmik Narıncı",
+        "specs": [
+          "Super Retina XDR",
+          "A19 Pro çipi",
+          "ProMotion 120Hz"
+        ]
       },
       {
-        "sub": "6.1 DÜYM · 256 QB · BOZ",
-        "title": "iPhone 15 Pro, 256 QB, BOZ"
+        "sub": "6.1 DÜYM · 256QB · TİTAN BOZ",
+        "title": "iPhone 15 Pro, 256 QB, Boz",
+        "specs": [
+          "A17 Pro çipi",
+          "Titan çərçivə",
+          "USB 3 sürəti"
+        ]
       },
       {
-        "sub": "6.7 DÜYM · 512 QB · Qara",
-        "title": "iPhone 16 Pro Max, 512 QB, Qara"
+        "sub": "6.7 DÜYM · 512QB · FİRUZƏYİ",
+        "title": "iPhone 16 Pro Max, 512 QB, Firuzəyi",
+        "specs": [
+          "Camera Control",
+          "4K 120fps video",
+          "A18 Pro"
+        ]
       },
       {
-        "sub": "13.6 DÜYM · 256QB · Qara",
-        "title": "MacBook Pro M5"
+        "sub": "14.2 DÜYM · 512QB · SPACE BLACK",
+        "title": "MacBook Pro M5 14 düym",
+        "specs": [
+          "M5 çipi, 12 nüvə",
+          "ProMotion 120Hz",
+          "22 saata qədər batareya"
+        ]
+      },
+      {
+        "sub": "11 DÜYM · 256QB · SPACE GRAY",
+        "title": "iPad Pro M4 Ultra Thin",
+        "specs": [
+          "OLED Tandem displey",
+          "M4 prosessor",
+          "Apple Pencil Pro dəstəyi"
+        ]
       }
     ],
+    "announcement": "Bütün yeni məhsullarda rəsmi zəmanət və pulsuz çatdırılma ilə 18 aya qədər 0% taksit planları.",
+    "categories_title": "Apple Kateqoriyaları",
+    "categories_subtitle": "Xüsusiyyətləri, qiymətləri və konfiqurasiyaları kəşf etmək üçün seriya seçin",
+    "filters": {
+      "all": "Hamısı"
+    },
+    "see_whats_new": "Yenilikləri kəşf et",
+    "new_subtitle": "Yeni nəsil çiplərlə gücləndirilmiş ən son buraxılışlar",
+    "new_release": "YENİ BURAXILIŞ",
+    "quick_view": "Sürətli baxış",
+    "price": "Qiymət",
+    "add": "Əlavə et",
+    "added": "Əlavə olundu",
+    "why_choose": "Niyə Biz?",
+    "premium_services": "Premium Apple Xidmətləri",
+    "starting_at": "Başlanğıc qiymət",
+    "buy_now": "İndi al",
+    "quick_order": "Tez sifariş",
+    "quick_buy": "Tez al",
+    "magic_outside": "Möcüzəvi xarici görünüş",
+    "magic_subtitle": "Dəqiq işçilik, ultra canlı displeylər və misilsiz dizayn mühəndisliyi",
+    "quick_preview": "SÜRƏTLİ BAXIŞ",
+    "official_specs": "Apple rəsmi xüsusiyyətləri",
+    "chipset": "Prosessor",
+    "chipset_value": "Apple Silicon",
+    "display": "Displey",
+    "display_value": "Super Retina",
+    "warranty": "Zəmanət",
+    "warranty_value": "2 il",
+    "view_details": "Məhsul səhifəsi",
+    "add_to_bag": "Səbətə əlavə et",
+    "toast_added": "{{title}} səbətə əlavə olundu!",
+    "prev": "Əvvəlki",
+    "next": "Növbəti",
+    "close": "Bağla",
+    "slide_n": "Slayd {{n}}",
     "offer_banner": "Təklif Visa kartı ilə onlayn taksitlə ödəniş zamanı etibarlıdır. Müraciət üçün Scan/eMoney Prime. Bütün alışlar Apple Pay və ya Google Pay ilə edilməlidir",
     "view_all_apple": "Bütün Apple məhsullarına bax",
-    "see_whats_new": "Yenilikləri kəşf et",
     "discover_services": "Xidmətlər və daha çoxu ilə tanış ol",
-    "buy_now": "İndi al",
     "sale": "ENDİRİM",
-    "magic_outside": "Möcüzəvi xarici görünüş, innovativ daxili dizayn",
     "new_badge": "YENİ",
     "from_price": "{{price}} ₼-dan və ya {{monthly}} ₼/{{months}} ay",
     "from_category_price": "{{price}}-dan"
@@ -325,10 +409,26 @@
       "subtitle": "İllər boyu toplanmış təcrübə, sertifikatlı heyət və rəsmi ehtiyat hissələri ilə xidmətinizdəyik"
     },
     "why_choose_items": [
-      { "icon": "shield", "title": "Rəsmi Zəmanət", "desc": "Hər təmir işi zəmanət sertifikatı ilə müşayiət olunur" },
-      { "icon": "wrench", "title": "Müasir Avadanlıq", "desc": "Apple standartlarına uyğun alət və texnologiyalar istifadə edirik" },
-      { "icon": "badge", "title": "Sertifikatlı Heyət", "desc": "Texnisyenlərimiz Apple tərəfindən sertifikatlaşdırılmışdır" },
-      { "icon": "truck", "title": "Sürətli Çatdırılma", "desc": "Əksər hallarda eyni gün xidmət imkanı təklif edirik" }
+      {
+        "icon": "shield",
+        "title": "Rəsmi Zəmanət",
+        "desc": "Hər təmir işi zəmanət sertifikatı ilə müşayiət olunur"
+      },
+      {
+        "icon": "wrench",
+        "title": "Müasir Avadanlıq",
+        "desc": "Apple standartlarına uyğun alət və texnologiyalar istifadə edirik"
+      },
+      {
+        "icon": "badge",
+        "title": "Sertifikatlı Heyət",
+        "desc": "Texnisyenlərimiz Apple tərəfindən sertifikatlaşdırılmışdır"
+      },
+      {
+        "icon": "truck",
+        "title": "Sürətli Çatdırılma",
+        "desc": "Əksər hallarda eyni gün xidmət imkanı təklif edirik"
+      }
     ],
     "stats_section": {
       "badge": "Nailiyyətlərimiz",
@@ -336,10 +436,22 @@
       "subtitle": "Hər bir statistika arxasında bir müştəri məmnuniyyəti dayanır"
     },
     "stats_items": [
-      { "number": "15,000+", "title": "Uğurla Tamamlanmış Təmir" },
-      { "number": "98%", "title": "Müştəri Məmnuniyyəti" },
-      { "number": "8 il", "title": "Sənaye Təcrübəsi" },
-      { "number": "24/7", "title": "Texniki Dəstək" }
+      {
+        "number": "15,000+",
+        "title": "Uğurla Tamamlanmış Təmir"
+      },
+      {
+        "number": "98%",
+        "title": "Müştəri Məmnuniyyəti"
+      },
+      {
+        "number": "8 il",
+        "title": "Sənaye Təcrübəsi"
+      },
+      {
+        "number": "24/7",
+        "title": "Texniki Dəstək"
+      }
     ],
     "repair_form": {
       "badge": "Müraciət Formu",
@@ -373,11 +485,26 @@
       "subtitle": "Ən çox soruşulan sualların cavablarını burada tapa bilərsiniz"
     },
     "faqs": [
-      { "title": "Təmir müddəti nə qədərdir?", "answer": "Əksər təmirlər 1-2 iş günü ərzində tamamlanır. Mürəkkəb vəziyyətlər üçün əlavə vaxt tələb oluna bilər" },
-      { "title": "Hansı ödəniş üsullarını qəbul edirsiniz?", "answer": "Nağd, bank kartı, onlayn ödəniş və hissə-hissə ödəniş seçimlərini qəbul edirik" },
-      { "title": "Orijinal hissələr istifadə edirsinizmi?", "answer": "Bəli, yalnız Apple tərəfindən təsdiqlənmiş orijinal ehtiyat hissələrindən istifadə edirik" },
-      { "title": "Zəmanət şərtləriniz necədir?", "answer": "Bütün təmir işlərinə 3-6 ay zəmanət veririk. Zəmanət dövründə hər hansı problem yaranarsa, pulsuz bərpa edirik" },
-      { "title": "Su zədəsi alan cihazları təmir edirsinizmi?", "answer": "Bəli, su zədəsi olan cihazları da qəbul edirik. Diaqnostikadan sonra mümkün həllər barəsində sizə məlumat veririk" }
+      {
+        "title": "Təmir müddəti nə qədərdir?",
+        "answer": "Əksər təmirlər 1-2 iş günü ərzində tamamlanır. Mürəkkəb vəziyyətlər üçün əlavə vaxt tələb oluna bilər"
+      },
+      {
+        "title": "Hansı ödəniş üsullarını qəbul edirsiniz?",
+        "answer": "Nağd, bank kartı, onlayn ödəniş və hissə-hissə ödəniş seçimlərini qəbul edirik"
+      },
+      {
+        "title": "Orijinal hissələr istifadə edirsinizmi?",
+        "answer": "Bəli, yalnız Apple tərəfindən təsdiqlənmiş orijinal ehtiyat hissələrindən istifadə edirik"
+      },
+      {
+        "title": "Zəmanət şərtləriniz necədir?",
+        "answer": "Bütün təmir işlərinə 3-6 ay zəmanət veririk. Zəmanət dövründə hər hansı problem yaranarsa, pulsuz bərpa edirik"
+      },
+      {
+        "title": "Su zədəsi alan cihazları təmir edirsinizmi?",
+        "answer": "Bəli, su zədəsi olan cihazları da qəbul edirik. Diaqnostikadan sonra mümkün həllər barəsində sizə məlumat veririk"
+      }
     ],
     "contact": {
       "badge": "Bizimlə Əlaqə",
