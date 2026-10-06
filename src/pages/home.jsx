@@ -370,7 +370,7 @@ function Home() {
       )}
 
       {/* HERO SECTION */}
-      <section className="relative w-full overflow-hidden min-h-[36rem] sm:min-h-[32rem] md:min-h-[34rem]">
+      <section className="relative w-full overflow-hidden min-h-[36rem] sm:min-h-[32rem] md:min-h-[34rem] font-['Roboto',sans-serif]">
         {heroSlides.map((slide, i) => (
           <div
             key={slide.id}
