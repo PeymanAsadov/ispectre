@@ -22,7 +22,7 @@ function Navlists() {
   const dropdownClasses = "absolute top-full left-0 mt-1 bg-white/95 dark:bg-[#2c2c2e]/95 rounded-xl w-52 shadow-2xl p-1.5 border border-gray-100 dark:border-gray-700/50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:backdrop-blur-md transition-opacity duration-200 ease-out transform scale-95 group-hover:scale-100 z-50";
 
   return (
-    <div className="hidden md:block bg-gray-50/90 dark:bg-[#1c1c1e]/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 overflow-visible transition-colors duration-150">
+    <div className="hidden md:block bg-gray-50/90 dark:bg-[#1c1c1e]/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 overflow-visible">
       <div className="max-w-[1440px] mx-auto px-12 relative">
         <ul className="flex justify-around items-center py-3 text-xs font-normal text-gray-600 dark:text-gray-300 text-[14px]">
           

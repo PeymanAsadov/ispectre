@@ -21,6 +21,12 @@ body {
   color: #F5F5F5;
 }
 
+/* Tema dəyişəndə yalnız navbar-ın transition-larını söndür */
+.no-theme-transition .nav-root,
+.no-theme-transition .nav-root * {
+  transition: none !important;
+}
+
 
 /* Fade- */
 

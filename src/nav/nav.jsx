@@ -45,7 +45,7 @@ function Nav() {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out will-change-transform ${
+      className={`nav-root fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out will-change-transform ${
         hidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >

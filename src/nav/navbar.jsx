@@ -174,7 +174,7 @@ function Navbar() {
   ];
 
   return (
-    <div className="text-[#1D1D1F] dark:text-[#F5F5F7] bg-white/90 dark:bg-[#1c1c1e]/90 backdrop-blur-sm w-full border-b border-gray-100 dark:border-gray-800/60 sticky top-0 z-50 transition-colors duration-150">
+    <div className="text-[#1D1D1F] dark:text-[#F5F5F7] bg-white/90 dark:bg-[#1c1c1e]/90 backdrop-blur-sm w-full border-b border-gray-100 dark:border-gray-800/60 sticky top-0 z-50">
       {logoutToast && (
         <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[200] bg-gray-900 text-white text-sm font-medium px-5 py-3 rounded-full shadow-xl flex items-center gap-2 animate-[fadeIn_0.2s_ease-out]">
           <CheckCircle2 size={16} className="text-green-400" />
