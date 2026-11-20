@@ -251,7 +251,7 @@ function Home() {
   const categories = [
     {
       id: 1,
-      name: t("nav.mac"),
+      name: t("nav.macbook"),
       image:
         macbooks[0]?.colors?.[0]?.images?.[0]?.url ||
         "https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/w:512/plain/s3://cms/category/72/38/7238e36f7f59ad1c9824aa518449cba0/260305150018795522.webp",

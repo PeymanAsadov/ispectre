@@ -19,7 +19,7 @@ function Navlists() {
   }, []);
 
   // "left-0"
-  const dropdownClasses = "absolute top-full left-0 mt-1 bg-white/95 dark:bg-[#2c2c2e]/95 rounded-xl w-52 shadow-2xl p-1.5 border border-gray-100 dark:border-gray-700/50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:backdrop-blur-md transition-opacity duration-200 ease-out transform scale-95 group-hover:scale-100 z-50";
+  const dropdownClasses = "absolute top-full left-0 bg-white dark:bg-[#2c2c2e] rounded-xl w-52 shadow-2xl p-1.5 border border-gray-100 dark:border-gray-700/50 opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-[opacity,visibility] duration-200 ease-out z-50 before:content-[''] before:absolute before:left-0 before:right-0 before:-top-2 before:h-2";
 
   return (
     <div className="hidden md:block bg-gray-50/90 dark:bg-[#1c1c1e]/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 overflow-visible">
@@ -30,6 +30,8 @@ function Navlists() {
           <li className="group relative cursor-pointer py-2">
             <span className="hover:text-black dark:hover:text-white transition-colors">{t("nav.mac")}</span>
             <ul className={dropdownClasses}>
+              <li className="px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"><Link to="/macbook" className="block">{t("nav.mac")}</Link></li>
+                
               <li className="px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"><Link to="/macbook-neo" className="block">MacBook Neo</Link></li>
               <li className="px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"><Link to="/macbook-air" className="block">MacBook Air</Link></li>
               <li className="px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"><Link to="/macbook-pro" className="block">MacBook Pro</Link></li>
